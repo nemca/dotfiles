@@ -1,0 +1,159 @@
+# Кодовая страница для отправляемых нами сообщений
+set send_charset="utf-8"
+# Если для входящих сообщений не задано кодовой страницы, то, скорее всего, это windows
+set assumed_charset="utf-8:windows-1251:iso-8859-1"
+set attach_charset="utf-8:windows-1251:iso-8859-1"
+set rfc2047_parameters=yes
+  
+# Удостоверьтесь что Vim знает о том, что mutt это почтовый клиент и укажем ему, что создаем сообщений в UTF-8
+set editor="vim -c 'set syntax=mail ft=mail enc=utf-8'"
+  
+# Скроллинг по одной строке, а не по странице
+set menu_scroll=yes
+  
+# не показывать pgp на странице
+set pgp_verify_sig=no
+# Мы хотим смотреть некоторые MIME-типы не выходя из программы, смотри ниже (после этого листинга кода) объяснения
+#auto_view application/msword
+#auto_view application/pdf
+  
+# Шаблон по умолчанию для поиска в To, Cc и Subject
+set simple_search="~f %s | ~C %s | ~s %s"
+  
+# Настройки потоков, сортировать по потокам
+set sort=threads
+set strict_threads=yes
+  
+# Показываем очки спама (только из SpamAssassin) при чтении сообщения
+spam "X-Spam-Score: ([0-9\\.]+).*" "SA: %1"
+set pager_format = "%[%d-%m-20%y %H:%M] %.20v, %s%* %?H? [%H] ?"
+#set pager_format = "-%Z- %C/%m: %-20.20n   %s%*  -- (%P)"
+#set index_format = "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set index_format = "%[%d-%m-20%y %H:%M] %Z  %-30.30L | %s"
+#set folder_format="%2C %t %8s %d %N %f"
+  
+# Не показывать все заголовки, только некоторые
+ignore          *
+unignore        From To Cc Bcc Date Subject
+# в таком порядке
+unhdr_order     *
+hdr_order       From: To: Cc: Bcc: Date: Subject:
+  
+# Раскрасим все цветами, для примеров раскраски смотри сайт
+# http://aperiodic.net/phil/configs/mutt/colors
+color normal      brightwhite          black
+color hdrdefault  green          default
+color quoted      white          default
+color quoted1     white         default
+color quoted2     white            default
+color signature   cyan           default
+color indicator   brightwhite	 blue
+color error       brightwhite	 red
+color status      black    white
+color tree        brightgreen  black
+color tilde       blue           default
+color attachment  brightyellow   default
+color markers     brightred      default
+color message     white          black
+color search      brightwhite    magenta
+color bold        brightgreen   default
+color index		  green		 default "~U"
+# Color definitions when on a mono screen
+mono bold      bold
+mono underline underline
+mono indicator reverse
+mono error     bold
+
+# Colors for items in the reader
+color header brightcyan default "^(From):"
+color header white default "^(Date):"
+color header brightcyan   default ^To:
+color header brightcyan   default ^Cc:
+color  header brightgreen default "^(Subject):"
+# deleted messages
+color index red           default "!~N ~D"
+color index red           white   "~N ~D"
+# URLs
+color body brightblue default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# email addresses
+color body brightmagenta default "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+# Если вы не любите черный прогрессбар внизу экрана,
+# закомментируйте следующую строку
+#color progress    white          black
+  
+# Настройки пользователя
+set realname = "Michael Bruskov"
+set from = "m.bruskov@virlabs.ru"
+#alternates "andrew@mail.server|andrew.dalziel@mail.server"
+# Данный файл должен существовать, и в нем должна быть ваша подпись. Закомментируйте его, если вы 
+# не хотите использовать подпись
+set signature = ~/.signature
+  
+# Алиасы (что-то вроде адресной книги)
+source ~/.aliases
+  
+# Настройки соединения IMAP
+set mail_check=60
+set timeout=15
+set imap_keepalive=300
+  
+# Настройки аккаунта IMAP
+set imap_user=imaps://m.bruskov@mail.virtlabs.ru/
+set imap_pass=
+set imap_check_subscribed=yes
+set folder=imaps://m.bruskov@virtlabs.ru/
+#set folder=imaps://m.bruskov@virtlabs.ru/corba-cc/
+set spoolfile=imaps://m.bruskov@virtlabs.ru/
+#set record=imaps://m.bruskov@virtlabs.ru/Sent
+#set postponed=imaps://m.bruskov@virtlabs.ru/Drafts
+  
+# Использовать headercache для IMAP (проверьте, что это каталог для большего быстродействия!)
+set header_cache=/var/tmp/.mutt
+  
+# Почтовые ящики для проверки на новую почту
+#mailboxes "="
+#mailboxes "=Lists"
+# Начинать работу с просмотра этой папки
+set spoolfile="=INBOX"
+
+# cache 
+set header_cache=~/.mutt/hcache/
+  
+# Почтовые рассылки, на которые мы подписаны (используются регулярные выражения!)
+#subscribe "gentoo-.*@gentoo\\.org"
+#subscribe "^corba-cc@yandex-team\.ru$"
+#lists "^corba-cc@yandex-team\.ru$"
+  
+# Конфигурация SMTP для отправки почты
+set smtp_url=smtps://m.bruskov@mail.virtlabs.ru:465
+set smtp_pass=""
+set ssl_force_tls=yes
+
+# Меняет курсор на ->
+set arrow_cursor=no
+
+set beep=no
+set beep_new=yes
+# удалять письма без подтвержления
+set delete=yes
+# Редактировать загловки при составлении письма
+set edit_headers=no
+# Всегда включать тело исходного письма в ответное
+set include=yes
+# не показывать вложенные файлы
+set honor_disposition=yes
+# не помечать + сложенные строки
+set markers=no
+
+set implicit_autoview=yes
+auto_view text/html
+
+# key bind's
+bind pager <up> previous-line
+bind pager <down> next-line
+bind pager <Left>  previous-entry
+bind pager <Right> next-entry
+
+macro index \cb |urlview\n
+macro pager \cb |urlview\n
+macro  generic	 \em  ":source ~/.muttrc\n" "Reload mutt's configuration file"
