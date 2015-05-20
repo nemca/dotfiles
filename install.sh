@@ -6,3 +6,4 @@ eval env | egrep HOME 1>/dev/null 2>&1
 cp -r vim $HOME/.vim
 cp vimrc $HOME/.vimrc
 cp bashrc $HOME/.bashrc
+cp gitconfig $HOME/.gitconfig
