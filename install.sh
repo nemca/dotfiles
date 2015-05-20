@@ -9,3 +9,4 @@ cp bashrc $HOME/.bashrc
 cp gitconfig $HOME/.gitconfig
 cp tmux.conf $HOME/.tmux.conf
 cp muttrc $HOME/.muttrc
+cp -r mcabber $HOME/.mcabber
