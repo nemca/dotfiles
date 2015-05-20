@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/usr/local/Library/Taps/devtools-tap'
+let g:netrw_dirhist_2='/usr/local/Cellar/term-readline-gnu-perl/1.20'
+let g:netrw_dirhist_3='/Users/nemca/root-vpn/testing/Root testing.conf'
+let g:netrw_dirhist_4='/usr/local/go/src/nemca'
+let g:netrw_dirhist_5='/Users/nemca/.vim/bundle/vim-airline/autoload/airline'
+let g:netrw_dirhist_6='/Users/nemca/.oh-my-zsh'
+let g:netrw_dirhist_7='/Users/nemca/niitp/docs'
+let g:netrw_dirhist_8='/Users/nemca/tmp/ssh-chat/cmd/ssh-chat'
+let g:netrw_dirhist_9='/Library/Perl/5.18/darwin-thread-multi-2level/auto/Regexp/IPv6'
