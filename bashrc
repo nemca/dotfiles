@@ -71,3 +71,5 @@ fi
 	ssh-add 1>/dev/null 2>&1
 #fi
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+
+echo `curl -s -m 3 http://fucking-great-advice.ru/api/random |jq -r '.text'| w3m -dump -T text/html`
