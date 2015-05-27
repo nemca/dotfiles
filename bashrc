@@ -11,7 +11,7 @@ alias tl='while :; do clear; executer --cache task list 2>&1| egrep "(^OCORBA|^C
 #alias tmux='tmux attach || tmux new'
 alias tm='tmux'
 alias em='emacs'
-#alias vim='mvim -v'
+alias vim='mvim -v'
 alias hz_activate='source ~/haze/bin/activate'
 alias ipython='ipython --profile=nemca'
 
@@ -20,9 +20,9 @@ eval "$(boot2docker shellinit >/dev/null 2>&1)"
 export DOCKER_CERT_PATH="$HOME/.boot2docker/certs/boot2docker-vm/"
 export DOCKER_TLS_VERIFY="$HOME/.boot2docker/certs/boot2docker-vm/"
 
-NAME=`/usr/local/bin/whoami`
-DOMAIN=`hostname -f | cut -d. -f1`
-#DOMAIN="ari"
+NAME=`whoami`
+#DOMAIN=`hostname -f | cut -d. -f1`
+DOMAIN="ari"
 #COLOR_NAME="38;5;27"
 COLOR_NAME="38;5;33"
 COLOR_NAME_ROOT="31"
@@ -34,8 +34,8 @@ else
 	export PS1="\[\e[${COLOR_NAME_ROOT}m\]${DOMAIN} \[\e[0m\]\w # "
 fi
 #export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
-#export EDITOR="mvim -v"
-export EDITOR="vim"
+export EDITOR="mvim -v"
+#export EDITOR="vim"
 export PAGER="less"
 export LESSCHARSET='UTF-8'
 export GREP_COLOR='1;32'
@@ -48,13 +48,12 @@ export OS_AUTH_URL=https://identity.cloud.yandex-team.ru/v2.0
 export OS_TENANT_NAME="root"
 export OS_REGION_NAME="sas"
 export OS_USERNAME="nemca"
-export OS_PASSWORD=""
+export OS_PASSWORD="Neutr1n7"
 
 # Golang
-#export GOPATH="/usr/local/go"
-#export GOROOT="/usr/local/go"
-#export GOBIN="/usr/local/go/bin"
-#export GOPATH="/usr/local/go/:/Users/nemca/scripts/go"
+export GOROOT="/usr/local/go"
+export GOBIN="/usr/local/go/bin"
+export GOPATH="/usr/local/go/:/Users/nemca/scripts/go"
 
 # Mac
 if [ -f /usr/local/Cellar/bash-completion/1.3/etc/bash_completion ]; then
@@ -72,4 +71,13 @@ fi
 #fi
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
-echo `curl -s -m 3 http://fucking-great-advice.ru/api/random |jq -r '.text'| w3m -dump -T text/html`
+#echo `curl -s -m 3 http://fucking-great-advice.ru/api/random |jq -r '.text'| w3m -dump -T text/html`
+BASH_ADVICE=
+if [[ $BASH_ADVICE == yes ]]; then
+	tmp="/tmp/bash-advice"
+	curl -s -m 3 http://fucking-great-advice.ru/api/random |jq -r '.sound,.text' > $tmp
+	echo `egrep -v sound $tmp | w3m -dump -T text/html`
+	exec mplayer http://fucking-great-advice.ru/files/sounds/`egrep sound $tmp` 2>/dev/null 1>/dev/null &
+else
+	echo `curl -s -m 3 http://fucking-great-advice.ru/api/random |jq -r '.text'| w3m  -dump -T text/html`
+fi
