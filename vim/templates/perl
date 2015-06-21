@@ -1,0 +1,7 @@
+#! /usr/bin/env perl
+
+use strict;
+use warnings;
+
+
+# cursor: 6 del
