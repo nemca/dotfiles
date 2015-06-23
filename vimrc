@@ -9,6 +9,7 @@ call vundle#begin()
 	Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 	Plugin 'bling/vim-airline'
 	Plugin 'https://github.com/ap/vim-templates.git'
+	Plugin 'https://github.com/henrik/vim-indexed-search.git'
 	"Go
 	Plugin 'fatih/vim-go'
 	Plugin 'majutsushi/tagbar'
@@ -33,6 +34,7 @@ let g:airline_symbols.space = "\ua0"
 let mapleader=","
 let g:molokai_original = 1
 let g:rehash256 = 1
+let g:tagbar_width = 35
 
 syntax on
 "colo desert
@@ -61,9 +63,9 @@ set complete+=k
 set complete+=b
 set complete+=t
 set laststatus=2
-set ambiwidth=double
+"set ambiwidth=double
 set autoindent
-set expandtab
+"set expandtab
 set hlsearch
 set incsearch
 set ruler
@@ -82,6 +84,7 @@ set noshowmode
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd VimEnter * nested :TagbarOpen
 
 " Go
 au FileType go nmap <Leader>s <Plug>(go-implements)
