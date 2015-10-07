@@ -99,11 +99,20 @@ set noshowmode
 
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType go,python,perl nested :TagbarOpen
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 "autocmd vimenter * NERDTree
 "autocmd BufEnter * NERDTreeMirror
+
+inoremap /*          /**/<Left><Left>
+inoremap /*<Space>   /*<Space><Space>*/<Left><Left><Left>
+inoremap /*<CR>      /*<CR>*/<Esc>O<Tab>
+inoremap (           ()<Left>
+inoremap {<CR>       {<CR>}<Esc>O
+inoremap "           ""<Left>
+"inoremap "<Space>    "<Space>
+inoremap '           ''<Left>
 
 " Go
 au FileType go nmap <Leader>s <Plug>(go-implements)
