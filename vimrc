@@ -6,10 +6,12 @@ call vundle#begin()
 	Plugin 'gmarik/Vundle.vim'
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'L9'
+	Plugin 'bruno-/vim-man'
 	Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 	Plugin 'bling/vim-airline'
 	Plugin 'https://github.com/ap/vim-templates.git'
 	Plugin 'https://github.com/henrik/vim-indexed-search.git'
+	Plugin 'https://github.com/scrooloose/nerdtree.git'
 	"Go
 	Plugin 'fatih/vim-go'
 	Plugin 'majutsushi/tagbar'
@@ -34,7 +36,15 @@ let g:airline_symbols.space = "\ua0"
 let mapleader=","
 let g:molokai_original = 1
 let g:rehash256 = 1
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let g:tagbar_width = 35
+"Go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 syntax on
 "colo desert
@@ -42,6 +52,12 @@ colo molokai
 
 nnoremap <F2> :set paste!<CR>
 nnoremap <F3> :set hlsearch!<CR>
+nmap <F8> :TagbarToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
+"nmap <silent> <C-D> :NERDTreeToggle<CR>
+map <leader>m <Plug>(Vman)
+map <C-m> <Plug>(Vman)
+cnoreabbrev man Man
 
 aunmenu Help.
 aunmenu Window.
@@ -84,11 +100,15 @@ set noshowmode
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd VimEnter * nested :TagbarOpen
+"autocmd FileType go,python,perl nested :TagbarOpen
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
+"autocmd vimenter * NERDTree
+"autocmd BufEnter * NERDTreeMirror
 
 " Go
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gi <Plug>(go-info)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
