@@ -47,6 +47,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
+let delimitMate_expand_space = 1
+let delimitMate_expand_cr = 1
+
 syntax on
 "colo desert
 colo molokai
@@ -112,7 +115,7 @@ highlight Pmenu ctermfg=Yellow ctermbg=Blue
 " Go
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gi <Plug>(go-info)
+au FileType go nmap <Leader>gi <Plug>(go-install)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
