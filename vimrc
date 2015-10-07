@@ -12,6 +12,7 @@ call vundle#begin()
 	Plugin 'https://github.com/ap/vim-templates.git'
 	Plugin 'https://github.com/henrik/vim-indexed-search.git'
 	Plugin 'https://github.com/scrooloose/nerdtree.git'
+	Plugin 'https://github.com/Raimondi/delimitMate'
 	"Go
 	Plugin 'fatih/vim-go'
 	Plugin 'majutsushi/tagbar'
@@ -52,6 +53,9 @@ colo molokai
 
 nnoremap <F2> :set paste!<CR>
 nnoremap <F3> :set hlsearch!<CR>
+nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
+nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
+nnoremap wq :silent! normal mpeld bhd `ph<CR>
 nmap <F8> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 "nmap <silent> <C-D> :NERDTreeToggle<CR>
@@ -104,15 +108,6 @@ highlight Pmenu ctermfg=Yellow ctermbg=Blue
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 "autocmd vimenter * NERDTree
 "autocmd BufEnter * NERDTreeMirror
-
-inoremap /*          /**/<Left><Left>
-inoremap /*<Space>   /*<Space><Space>*/<Left><Left><Left>
-inoremap /*<CR>      /*<CR>*/<Esc>O<Tab>
-inoremap (           ()<Left>
-inoremap {<CR>       {<CR>}<Esc>O
-inoremap "           ""<Left>
-"inoremap "<Space>    "<Space>
-inoremap '           ''<Left>
 
 " Go
 au FileType go nmap <Leader>s <Plug>(go-implements)
