@@ -1,10 +1,12 @@
 [user]
     name = Michael Bruskov
-    email = nemca@yandex-team.ru
+    email = mixanemca@yandex.ru
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
 	autocrlf = input
 	safecrlf = true
+	packedGitLimit = 128m
+	packedGitWindowSize = 128m
 
 [merge]
     tool = vimdiff
@@ -16,14 +18,22 @@
 [push]
     default = current
 
+[pack]
+	threads = 4
+	deltaCacheSize = 1024m
+	packSizeLimit = 1024m
+	windowMemory = 1024m
+
 [color]
     diff = yes
     ui = auto
     # ui = true
 [color "branch"]
-    current = yellow reverse
+	#current = yellow reverse
+	current = green reverse
     local = yellow
-    remote = green
+    remote = magenta
+	upstream = magenta
 [color "diff"]
     meta = yellow
     frag = magenta
@@ -31,8 +41,8 @@
     new = green
     whitespace = red reverse
 [color "status"]
-    added = yellow
-    changed = green
+    added = green
+    changed = yellow
     untracked = cyan
 
 [alias]
@@ -49,6 +59,7 @@
     cp = cherry-pick
     lg = log -p
     rb = rebase
+	last = log -1 HEAD
     lod = log --graph --decorate --format='%h %ad %s' --date=short
     lod = log --graph --decorate --format='%C(yellow)%h %Cred%d %Cgreen%ad %Creset%s' --date=short
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
