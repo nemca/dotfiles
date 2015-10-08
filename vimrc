@@ -51,6 +51,9 @@ let g:go_fmt_command = "goimports"
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 
+" NERDcommenter
+let NERDSpaceDelims = 1
+
 syntax on
 "colo desert
 colo molokai
