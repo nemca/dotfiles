@@ -13,6 +13,7 @@ call vundle#begin()
 	Plugin 'https://github.com/henrik/vim-indexed-search.git'
 	Plugin 'https://github.com/scrooloose/nerdtree.git'
 	Plugin 'https://github.com/Raimondi/delimitMate'
+	Plugin 'https://github.com/scrooloose/nerdcommenter'
 	"Go
 	Plugin 'fatih/vim-go'
 	Plugin 'majutsushi/tagbar'
