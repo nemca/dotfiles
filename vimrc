@@ -24,8 +24,8 @@ filetype plugin indent on    " required
 let mapleader=","
 let g:airline_theme='sol'
 let g:airline_powerline_fonts = 0
-let g:airline_section_b = '%{strftime("%H:%M")} %{fugitive#head()}'
-let g:airline_section_c = '%t'
+let g:airline_section_b = '%{strftime("%H:%M")}'
+let g:airline_section_c = '%{fugitive#head()} %t'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
