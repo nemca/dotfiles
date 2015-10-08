@@ -21,21 +21,19 @@ call vundle#begin()
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-let python_highlight_all = 1
+let mapleader=","
 let g:airline_theme='sol'
 let g:airline_powerline_fonts = 0
-let g:airline_section_b = '%{strftime("c")}'
+let g:airline_section_b = '%{strftime("%H:%M")} %{fugitive#head()}'
 let g:airline_section_c = '%t'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:bufferline_echo = 0
-"let g:airline_symbols = ','
 if !exists('g:airline_symbols')
-	  let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
-let mapleader=","
 let g:molokai_original = 1
 let g:rehash256 = 1
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
@@ -75,7 +73,7 @@ aunmenu Window.
 "let no_buffers_menu=1
 "set mouse=a "Включить поддержку мыши
 set termencoding=utf-8
-set t_vb= 
+set t_vb=
 set showtabline=0
 set foldcolumn=0
 set wrap
@@ -90,9 +88,7 @@ set complete+=k
 set complete+=b
 set complete+=t
 set laststatus=2
-"set ambiwidth=double
 set autoindent
-"set expandtab
 set hlsearch
 set incsearch
 set ruler
@@ -108,6 +104,7 @@ set wildmenu
 set nocompatible              " be iMproved, required
 set noshowmode
 
+" цвет меню автодополнения
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
 
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
