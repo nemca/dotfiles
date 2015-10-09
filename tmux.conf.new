@@ -1,0 +1,41 @@
+#Set the base index for windows to 1 instead of 0
+set -g base-index 1
+
+#setw -g status-left '%d-%b %F '
+setw -g status-left '#(hostname -f) '
+setw -g status-left-length 20
+setw -g window-status-format '#I: #W '
+setw -g window-status-current-format '#I: #W '
+
+# default statusbar colors
+set-option -g status-bg white #base2
+set-option -g status-fg '#343434'
+set-option -g status-attr default
+
+# default window title colors
+set-window-option -g window-status-fg '#343434'
+set-window-option -g window-status-bg default
+#set-window-option -g window-status-attr dim
+
+# active window title colors
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-bg '#0066ff'
+#set-window-option -g window-status-current-attr bright
+
+# pane border
+set-option -g pane-border-fg white
+set-option -g pane-active-border-fg '#0099ff' #base1
+
+# message text
+set-option -g message-bg white
+set-option -g message-fg '#343434'
+
+# pane number display
+set-option -g display-panes-active-colour blue #blue
+set-option -g display-panes-colour brightred #orange
+
+# clock
+set-window-option -g clock-mode-colour blue
+
+unbind r
+bind r source-file ~/.tmux.conf
