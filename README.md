@@ -16,12 +16,11 @@ brew install git
 brew install coreutils
 brew install gnu-sed --with-default-names
 brew install gnu-tar --with-default-names
-brew install grep --with-default-names
 brew install tmux
 brew install wget
-brew install less
 brew install fish
-brew install unzip
-brew install vim --override-system-vi
-brew install macvim --override-system-vim --custom-system-icons
+brew install vim --with-override-system-vi
+brew install macvim --with-override-system-vim --custom-system-icons
+brew unlink vim
+brew link --overwrite macvim
 ```
