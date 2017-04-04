@@ -157,6 +157,7 @@ set wildmenu
 set nocompatible              " be iMproved, required
 set backspace=indent,eol,start
 set noshowmode
+set number
 
 " цвет меню автодополнения
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
@@ -199,6 +200,10 @@ au FileType go nmap <Leader>cn :cnext<CR>
 au FileType go nmap <Leader>cp :cprevious<CR>
 au FileType go nmap <Leader>a :GoAlternate<CR>
 au FileType go nmap <Leader>m :make<CR>
+au FileType go nmap <Leader>atj :GoAddTags json<CR>
+au FileType go nmap <Leader>atx :GoAddTags xml<CR>
+au FileType go nmap <Leader>rtj :GoRemoveTags json<CR>
+au FileType go nmap <Leader>rtx :GoRemoveTags xml<CR>
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
