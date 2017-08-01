@@ -69,19 +69,6 @@ set --export PATH $GOBIN $GNUBIN $PATH
 # set --export GNUMANPATH /usr/local/opt/gnu-tar/libexec/gnuman
 # set --export MANPATH $GNUMANPATH $MANPATH
 
-# govc
-set --export GOVC_URL spvcenter.vmware.northernlight.com
-set --export GOVC_USERNAME 'nl\mbruskov'
-set --export GOVC_PASSWORD Aeli9ohX
-set --export GOVC_INSECURE 1
-set --export GOVC_DATACENTER BDC
-
-# govmomi (need nl-vmware-info)
-set --export GOVMOMI_URL https://spvcenter.vmware.northernlight.com/sdk
-set --export GOVMOMI_USERNAME 'nl\mbruskov'
-set --export GOVMOMI_PASSWORD Aeli9ohX
-set --export GOVMOMI_INSECURE true
-
 # less colors for man pages
 set --export LESS_TERMCAP_mb (printf "\033[01;31m")
 set --export LESS_TERMCAP_md (printf "\033[01;38;5;74m")
