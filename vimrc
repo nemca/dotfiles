@@ -5,7 +5,7 @@ set directory=$HOME/.vim/swp
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
+"set rtp+=/usr/local/opt/fzf
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'
     Plugin 'tpope/vim-fugitive'
@@ -20,6 +20,7 @@ call vundle#begin()
     Plugin 'https://github.com/scrooloose/nerdtree.git'
     Plugin 'https://github.com/Raimondi/delimitMate'
     Plugin 'https://github.com/scrooloose/nerdcommenter'
+    Plugin 'rizzatti/dash.vim'
     " Pythin
     Plugin 'https://github.com/nvie/vim-flake8'
     " Go
@@ -31,7 +32,7 @@ call vundle#begin()
     Plugin 'honza/vim-snippets'
     Plugin 'Valloric/YouCompleteMe'
     " Ruby
-    Plugin 'vim-ruby/vim-ruby'
+    "Plugin 'vim-ruby/vim-ruby'
     " Markdown
     "Plugin 'godlygeek/tabular'
     "Plugin 'plasticboy/vim-markdown'
@@ -60,9 +61,9 @@ let g:tagbar_width = 55
 let g:tagbar_hide_nonpublic = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_autoshowtag = 0
-let g:ycm_server_python_interpreter = '/usr/local/bin/python'
+let g:ycm_server_python_interpreter = '/usr/local/opt/python/libexec/bin/python'
 let g:ycm_confirm_extra_conf = 1
-let g:ycm_global_ycm_extra_conf = '/Users/michael/.vim/bundle/YouCompleteMe//third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/Users/mbr/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:templates_empty_files = 1
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
@@ -108,18 +109,9 @@ nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
 nmap <F8> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
-"nmap <silent> <C-D> :NERDTreeToggle<CR>
 map <leader>m <Plug>(Vman)
 map <C-m> <Plug>(Vman)
 cnoreabbrev man Man
-"ctrl + left
-"imap <silent> <D-left> <esc><C-W><left>
-"vmap <silent> <D-left> <esc><C-W><left>
-"nmap <silent> <D-left> <C-W><left>
-"ctrl + right
-"imap <silent> <D-right> <esc><C-W><right>
-"vmap <silent> <D-right> <esc><C-W><right>
-"nmap <silent> <D-right> <C-W><right>
 
 aunmenu Help.
 aunmenu Window.
@@ -163,14 +155,9 @@ set number
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
 highlight Search ctermfg=None ctermbg=None cterm=bold,underline
 highlight IncSearch ctermfg=Blue ctermbg=None
+highlight Comment ctermfg=DarkGreen
 
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType go,python,perl nested :TagbarOpen
-"autocmd VimEnter * nested :call tagbar#autoopen(1)
-"autocmd vimenter *.go nested :call tagbar#autoopen(1)
-"autocmd vimenter * NERDTree
-"autocmd BufEnter * NERDTreeMirror
-autocmd FileType json,ruby,eruby,yaml,html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
+autocmd FileType json,ruby,eruby,yaml,html,sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
 autocmd Filetype python let NERDSpaceDelims=0
 autocmd BufNewFile,BufRead *.go setlocal expandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.tmpl setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
@@ -195,11 +182,12 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <Leader>e :GoIfErr<CR>
 au FileType go nmap <Leader>cn :cnext<CR>
 au FileType go nmap <Leader>cp :cprevious<CR>
 au FileType go nmap <Leader>a :GoAlternate<CR>
 au FileType go nmap <Leader>m :make<CR>
+au FileType go nmap <Leader>gm :GoMetaLinter<CR>
 au FileType go nmap <Leader>atj :GoAddTags json<CR>
 au FileType go nmap <Leader>atx :GoAddTags xml<CR>
 au FileType go nmap <Leader>rtj :GoRemoveTags json<CR>
