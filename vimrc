@@ -5,7 +5,6 @@ set directory=$HOME/.vim/swp
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-"set rtp+=/usr/local/opt/fzf
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'
     Plugin 'tpope/vim-fugitive'
@@ -31,11 +30,6 @@ call vundle#begin()
     Plugin 'SirVer/ultisnips'
     Plugin 'honza/vim-snippets'
     Plugin 'Valloric/YouCompleteMe'
-    " Ruby
-    "Plugin 'vim-ruby/vim-ruby'
-    " Markdown
-    "Plugin 'godlygeek/tabular'
-    "Plugin 'plasticboy/vim-markdown'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -82,6 +76,7 @@ let g:go_textobj_include_function_doc = 1
 let g:go_snippet_case_type = "camelcase"
 let g:go_auto_type_info = 1
 let g:go_template_autocreate = 0
+let g:go_metalinter_enabled = ['vet', 'golint']
 
 " Snippets https://github.com/SirVer/ultisnips
 let g:UltiSnipsExpandTrigger="<c-s>"
@@ -186,7 +181,9 @@ au FileType go nmap <Leader>e :GoIfErr<CR>
 au FileType go nmap <Leader>cn :cnext<CR>
 au FileType go nmap <Leader>cp :cprevious<CR>
 au FileType go nmap <Leader>a :GoAlternate<CR>
-au FileType go nmap <Leader>m :make<CR>
+au FileType go nmap <Leader>m :GoMetaLinter<CR>
+au FileType go nmap <Leader>l :GoLint<CR>
+au FileType go nmap <Leader>v :GoVet<CR>
 au FileType go nmap <Leader>gm :GoMetaLinter<CR>
 au FileType go nmap <Leader>atj :GoAddTags json<CR>
 au FileType go nmap <Leader>atx :GoAddTags xml<CR>
