@@ -55,7 +55,7 @@ let g:tagbar_width = 55
 let g:tagbar_hide_nonpublic = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_autoshowtag = 0
-let g:ycm_server_python_interpreter = '/usr/local/opt/python/libexec/bin/python'
+let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_global_ycm_extra_conf = '/Users/mbr/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:templates_empty_files = 1
@@ -70,16 +70,29 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
+let g:go_highlight_function_calls = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_fmt_command = 'goimports'
+let g:go_def_mode= 'gopls'
 let g:go_test_timeout = '10s'
 let g:go_textobj_include_function_doc = 1
-let g:go_snippet_case_type = "camelcase"
+let g:go_snippet_case_type = 'camelcase'
 let g:go_auto_type_info = 1
 let g:go_template_autocreate = 0
 let g:go_metalinter_enabled = ['vet', 'golint']
 
 " Snippets https://github.com/SirVer/ultisnips
-let g:UltiSnipsExpandTrigger="<c-s>"
+"let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:UltiSnipsExpandTrigger = "<C-s>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
@@ -154,6 +167,7 @@ highlight Comment ctermfg=DarkGreen
 
 autocmd FileType json,ruby,eruby,yaml,html,sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
 autocmd Filetype python let NERDSpaceDelims=0
+autocmd BufNewFile,BufRead *.pp setlocal expandtab tabstop=2 shiftwidth=2
 autocmd BufNewFile,BufRead *.go setlocal expandtab tabstop=4 shiftwidth=4
 autocmd BufNewFile,BufRead *.tmpl setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
 
