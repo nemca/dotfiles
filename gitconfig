@@ -1,12 +1,12 @@
 [user]
-    name = Michael Bruskov
-    email = mixanemca@yandex.ru
+    name = Mikhail Bruskov
+    email = mvbruskov@avito.ru
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
-	autocrlf = input
-	safecrlf = true
-	packedGitLimit = 128m
-	packedGitWindowSize = 128m
+    autocrlf = false
+    safecrlf = true
+    packedGitLimit = 128m
+    packedGitWindowSize = 128m
 
 [merge]
     tool = vimdiff
@@ -16,24 +16,25 @@
     autosetuprebase = always
 
 [push]
-    default = current
+    #default = current
+    default = simple
 
 [pack]
-	threads = 4
-	deltaCacheSize = 1024m
-	packSizeLimit = 1024m
-	windowMemory = 1024m
+    threads = 4
+    deltaCacheSize = 1024m
+    packSizeLimit = 1024m
+    windowMemory = 1024m
 
 [color]
     diff = yes
     ui = auto
     # ui = true
 [color "branch"]
-	#current = yellow reverse
-	current = green reverse
+    #current = yellow reverse
+    current = green reverse
     local = yellow
     remote = magenta
-	upstream = magenta
+    upstream = magenta
 [color "diff"]
     meta = yellow
     frag = magenta
@@ -59,37 +60,24 @@
     cp = cherry-pick
     lg = log -p
     rb = rebase
-	last = log -1 HEAD
+    last = log -1 HEAD
     lod = log --graph --decorate --format='%h %ad %s' --date=short
     lod = log --graph --decorate --format='%C(yellow)%h %Cred%d %Cgreen%ad %Creset%s' --date=short
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    hist = log --pretty=format:'%C(yellow)%h%C(21) %ad %C(15)%s%C(reset) %C(green)%d%C(reset) %C(75)[%an]' --graph --date=short --branches --all 
+    hist = log --pretty=format:'%C(yellow)%h%C(21) %ad %C(15)%s%C(reset) %C(green)%d%C(reset) %C(75)[%an]' --graph --date=short --branches --all
     standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
-    
+
     # search commits by message
     search = "!f() { git log --all --grep=$1; }; f"
-    
+
     fm = "!sh -c 'git show `git rev-list --ancestry-path $0..dev --merges | tail -f`'"
 
 [diff]
     noprefix = true
-
-[url "git@github.yandex-team.ru:"]
-    pushInsteadOf = "ght:"
-    pushInsteadOf = "git://github.yandex-team.ru/"
-
-[url "git://github.yandex-team.ru/"]
-    insteadOf = "ght:"
-
-[url "git@github.com:"]
-    pushInsteadOf = "gh:"
-    pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-    insteadOf = "gh:"
+    ignoreSubmodules = all
 
 [help]
-	autocorrect = 1
+    autocorrect = 1
