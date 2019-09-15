@@ -19,7 +19,7 @@ brew install gnu-tar --with-default-names
 brew install tmux
 brew install wget
 brew install fish
-brew install vim --with-override-system-vi
+brew install vim -- --with-python@2 --with-override-system-vi
 brew install macvim --with-override-system-vim --custom-system-icons
 brew unlink vim
 brew link --overwrite macvim
