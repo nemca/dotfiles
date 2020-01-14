@@ -1,6 +1,6 @@
 set nocompatible
 set autowrite
-set shell=/bin/bash
+set shell=/usr/local/bin/bash
 set directory=$HOME/.vim/swp
 filetype off
 
@@ -87,7 +87,7 @@ let g:go_metalinter_enabled = ['vet', 'golint']
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 "let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 "let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-let g:UltiSnipsExpandTrigger = "<C-s>"
+let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
@@ -105,12 +105,12 @@ syntax on
 colo molokai
 
 nnoremap <F2> :set paste!<CR>
-nnoremap <F3> :set hlsearch!<CR>
-nnoremap <F4> :set invnumber<CR>
+"nnoremap <F3> :set hlsearch!<CR>
+nnoremap <F3> :set invnumber<CR>
 nnoremap <F5> :!go build<CR><CR>
-nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
-nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
-nnoremap wq :silent! normal mpeld bhd `ph<CR>
+"nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
+"nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
+"nnoremap wq :silent! normal mpeld bhd `ph<CR>
 nnoremap gd :GoDef<CR>
 nnoremap gt :tabnext<CR>
 nnoremap gT :tabprevious<CR>
