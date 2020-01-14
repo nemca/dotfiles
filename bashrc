@@ -1,10 +1,11 @@
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/sbin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/bin:/usr/local/sbin"
 export CDPATH="/Users/mvbruskov/git/avito"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+alias gg='git grep'
 alias ll='ls -lh'
 
 #git_branch() {
@@ -75,7 +76,11 @@ fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="/usr/local/opt/gnu-getopt/bin:$HOME/go/bin:$PATH:$HOME/.rvm/bin"
-source $HOME/.rvm/scripts/rvm
+if [[ -r $HOME/.rvm/scripts/rvm ]]; then
+  source $HOME/.rvm/scripts/rvm
+fi
 
 complete -C /usr/local/bin/mc mc
 complete -W "$(echo `cat ~/git/avito/avito-utils/puppet/etc/modules/avito-bind/files/master/util/msk.avito.ru | grep -Ev "^(;| |$)" | awk '{print $1}' | uniq`)" tmux
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
