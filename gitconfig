@@ -45,6 +45,10 @@
     added = green
     changed = yellow
     untracked = cyan
+[color "grep"]
+    linenumber = green
+    match = green bold
+    filename = magenta
 
 [alias]
     st = status
