@@ -2,13 +2,23 @@
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
 #autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /usr/local/bin/mc mc
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#complete -o nospace -C /usr/local/bin/consul consul
-#complete -o nospace -C /usr/local/bin/minio-client minio-client
+complete -o nospace -C /usr/local/bin/consul consul
+complete -o nospace -C /usr/local/bin/minio-client minio-client
+
+# =============
+#    ALIAS
+# =============
+alias ..='cd ..'
+alias ls='ls --color=auto'
+alias ll='ls -lh'
 
 # =============
 #    PROMPT
