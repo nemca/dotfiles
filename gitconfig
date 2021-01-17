@@ -1,6 +1,7 @@
 [user]
     name = Mikhail Bruskov
     email = mvbruskov@avito.ru
+    signingkey = CAB693AB42AF223E
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
     autocrlf = false
@@ -9,11 +10,19 @@
     packedGitWindowSize = 128m
 
 [merge]
+    #ff = only
     tool = vimdiff
     log = true
 
+[pull]
+    ff = only
+    rebase = true
+
 [branch]
     autosetuprebase = always
+
+[grep]
+    linenumber = true
 
 [push]
     #default = current
@@ -38,13 +47,18 @@
 [color "diff"]
     meta = yellow
     frag = magenta
-    old = red
-    new = green
+    old = red bold
+    new = green bold
     whitespace = red reverse
 [color "status"]
     added = green
     changed = yellow
     untracked = cyan
+
+[color "grep"]
+    linenumber = green
+    match = green bold
+    filename = magenta
 
 [alias]
     st = status
