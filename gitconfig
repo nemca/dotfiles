@@ -1,7 +1,7 @@
 [user]
     name = Mikhail Bruskov
     email = mvbruskov@avito.ru
-    signingkey = CAB693AB42AF223E
+	signingkey = 28F5980895836E89
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
     autocrlf = false
@@ -10,13 +10,8 @@
     packedGitWindowSize = 128m
 
 [merge]
-    #ff = only
     tool = vimdiff
     log = true
-
-[pull]
-    ff = only
-    rebase = true
 
 [branch]
     autosetuprebase = always
