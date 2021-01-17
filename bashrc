@@ -1,5 +1,5 @@
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/bin:/usr/local/sbin"
-export CDPATH="/Users/mvbruskov/git/avito"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/usr/local/sbin"
+export CDPATH="/Users/mbr/git/avito:/Users/mbr/go/src/github.com/mixanemca"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -8,25 +8,13 @@ alias fgrep='fgrep --color=auto'
 alias gg='git grep'
 alias ll='ls -lh'
 
-#git_branch() {
-#  local branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
-#  if [[ "${branch}" =~ master ]]; then
-#    printf '\e[31m%s\e[0m' "${branch}"
-#  else
-#    printf '\e[33m%s\e[0m' "${branch}"
-#  fi
-#}
-
-copy-tmux-conf() {
-  if [[ -n $1 ]]; then
-    scp $HOME/.tmux.conf ${1}:
-  fi
-}
-
 tmux() {
   if [[ -n ${1} ]]; then
     if ! ssh ${1} ls -1 \$HOME/.tmux.conf 1>/dev/null 2>&1; then
       scp $HOME/.tmux.conf ${1}: >/dev/null
+    fi
+    if ! ssh ${1} ls -1 \$HOME/.vimrc 1>/dev/null 2>&1; then
+      scp $HOME/.vimrc-servers ${1}:.vimrc >/dev/null
     fi
     ssh -t ${1} "tmux attach || tmux new -s mbr"
   fi
@@ -62,12 +50,10 @@ export HISTTIMEFORMAT='%F %T '
 export GITIN_LINESIZE=20
 export GITIN_SEARCHMODE="fuzzy" # https://github.com/isacikgoz/gitin
 
-# ssh-agent
-#SSH_AGENT_PID=$(pgrep ssh-agent)
-if [ -z "$SSH_AGENT_PID" ] ; then
-  eval $(ssh-agent -s) >/dev/null
-  ssh-add &>/dev/null
-fi
+# GPG
+GPG_TTY=$(tty)
+export GPG_TTY
+
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
 if [[ -r /etc/profile.d/rvm.sh ]]; then
@@ -81,6 +67,8 @@ if [[ -r $HOME/.rvm/scripts/rvm ]]; then
 fi
 
 complete -C /usr/local/bin/mc mc
-complete -W "$(echo `cat ~/git/avito/avito-utils/puppet/etc/modules/avito-bind/files/master/util/msk.avito.ru | grep -Ev "^(;| |$)" | awk '{print $1}' | uniq`)" tmux
+complete -W "$(curl --connect-timeout 1 --max-time 2 -sk https://dnsaas-proxy.msk.avito.ru/zone/info/?zone=msk.avito.ru | jq -r '.rrsets | .[] | .name')" tmux pup
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+complete -C /usr/local/bin/consul consul
