@@ -1,17 +1,17 @@
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-#autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /usr/local/bin/mc mc
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-complete -o nospace -C /usr/local/bin/consul consul
-complete -o nospace -C /usr/local/bin/minio-client minio-client
 
 # =============
 #    ALIAS
@@ -110,6 +110,9 @@ zstyle ':completion:*' rehash true
 
 # Keep directories and files separated
 zstyle ':completion:*' list-dirs-first true
+
+complete -o nospace -C /usr/local/bin/consul consul
+complete -o nospace -C /usr/local/bin/minio-client minio-client
 
 # ===================
 #    KEY BINDINGS
