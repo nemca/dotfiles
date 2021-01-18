@@ -17,7 +17,10 @@ make
 
 #### Make zsh the new default
 ```bash
-chsh -s /bin/zsh
+if ! fgrep -q /usr/local/bin/zsh /etc/shells; then
+  echo /usr/local/bin/zsh | sudo tee -a /etc/shells
+fi
+chsh -s /usr/local/bin/zsh
 ```
 
 #### Setup VIM
