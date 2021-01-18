@@ -19,8 +19,10 @@ export LANG="en_US.UTF-8"
 #    ALIAS
 # =============
 alias ..='cd ..'
-alias ls='ls --color=auto'
+alias gg='git grep'
 alias ll='ls -lh'
+alias ls='ls --color=auto'
+alias t='tmux'
 
 # =============
 #    PROMPT
@@ -168,3 +170,18 @@ typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 # These are installed via github.com/fatih/dotfiles/Brewfile
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# ===================
+#    MISC FUNCTIONS
+# ===================
+tmux() {
+  if [[ -n ${1} ]]; then
+    if ! ssh ${1} ls -1 \$HOME/.tmux.conf 1>/dev/null 2>&1; then
+      scp $HOME/.tmux.conf ${1}: >/dev/null
+    fi
+    if ! ssh ${1} ls -1 \$HOME/.vimrc 1>/dev/null 2>&1; then
+      scp $HOME/.vimrc-servers ${1}:.vimrc >/dev/null
+    fi
+    ssh -t ${1} "tmux attach || tmux new -s mbr"
+  fi
+}
