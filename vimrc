@@ -20,8 +20,10 @@ call vundle#begin()
     Plugin 'https://github.com/Raimondi/delimitMate'
     Plugin 'https://github.com/scrooloose/nerdcommenter'
     Plugin 'rizzatti/dash.vim'
-    " Pythin
+    " Python
     Plugin 'https://github.com/nvie/vim-flake8'
+    " Puppet
+    Plugin 'https://github.com/rodjek/vim-puppet.git'
     " Go
     Plugin 'fatih/vim-go'
     Plugin 'fatih/molokai'
@@ -55,7 +57,7 @@ let g:tagbar_width = 55
 let g:tagbar_hide_nonpublic = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_autoshowtag = 0
-let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_global_ycm_extra_conf = '/Users/mbr/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:templates_empty_files = 1
