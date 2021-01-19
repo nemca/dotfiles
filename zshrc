@@ -14,6 +14,7 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 
 # =============
 #    ALIAS
@@ -25,11 +26,21 @@ alias ls='ls --color=auto'
 alias t='tmux'
 
 # =============
+#    OPTIONS
+# =============
+setopt promptsubst
+setopt interactivecomments
+setopt histignoredups
+setopt auto_menu         # show completion menu on successive tab press
+setopt complete_in_word
+setopt always_to_end
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol
+
+# =============
 #    PROMPT
 # =============
 autoload -U colors && colors
-setopt promptsubst
-setopt HIST_IGNORE_DUPS
 
 local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[green]%}$)"
 PROMPT='${ret_status} %{$fg[blue]%}%c%{$reset_color%} $(git_prompt_info)'
@@ -81,12 +92,6 @@ zmodload -i zsh/complist
 
 WORDCHARS=''
 
-unsetopt menu_complete   # do not autoselect the first completion entry
-unsetopt flowcontrol
-setopt auto_menu         # show completion menu on successive tab press
-setopt complete_in_word
-setopt always_to_end
-
 # autocompletion with an arrow-key driven interface
 zstyle ':completion:*:*:*:*:*' menu select
 
@@ -126,7 +131,7 @@ bindkey -e
 
 # [Ctrl-r] - Search backward incrementally for a specified string. The string
 # may begin with ^ to anchor the search to the beginning of the line.
-bindkey '^r' history-incremental-search-backward      
+bindkey '^r' history-incremental-search-backward
 
 if [[ "${terminfo[kpp]}" != "" ]]; then
   bindkey "${terminfo[kpp]}" up-line-or-history       # [PageUp] - Up a line of history
@@ -155,6 +160,9 @@ else
   bindkey "^[3;5~" delete-char
   bindkey "\e[3~" delete-char
 fi
+
+# Alt+Shirt+3 for comment
+bindkey '^[#' pound-insert
 
 # ===================
 #    MISC SETTINGS
