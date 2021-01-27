@@ -63,6 +63,8 @@ let g:ycm_global_ycm_extra_conf = '/Users/mbr/.vim/bundle/YouCompleteMe/third_pa
 let g:templates_empty_files = 1
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
+" Puppet. Disable automatic => alignment
+let g:puppet_align_hashes = 0
 "Go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
