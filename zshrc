@@ -24,7 +24,6 @@ alias ..='cd ..'
 alias gg='git grep'
 alias ll='ls -lh'
 alias ls='ls --color=auto'
-alias t='tmux'
 
 # =============
 #    OPTIONS
@@ -183,7 +182,7 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # ===================
 #    MISC FUNCTIONS
 # ===================
-tmux() {
+t() {
   if [[ -n ${1} ]]; then
     if ! ssh ${1} ls -1 \$HOME/.tmux.conf 1>/dev/null 2>&1; then
       scp $HOME/.tmux.conf ${1}: >/dev/null
