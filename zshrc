@@ -15,7 +15,8 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+[ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
+[ -f ~/.zshrc-private ] && source ~/.zshrc-private
 
 # =============
 #    ALIAS
