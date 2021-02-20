@@ -4,6 +4,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 export CDPATH="$HOME/git/avito:$HOME/go/src/github.com/mixanemca"
@@ -13,6 +14,8 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
+
+export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
@@ -25,6 +28,9 @@ alias ..='cd ..'
 alias gg='git grep'
 alias ll='ls -lh'
 alias ls='ls --color=auto'
+alias grep='grep --color=auto --devices=skip'
+alias egrep='egrep --color=auto --devices=skip'
+alias fgrep='fgrep --color=auto --devices=skip'
 
 # =============
 #    OPTIONS
