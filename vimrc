@@ -105,8 +105,15 @@ let delimitMate_expand_cr = 2
 let NERDSpaceDelims = 1
 
 syntax on
-"colo desert
-colo molokai
+set conceallevel=2
+set concealcursor=nvc
+au VimEnter * syntax match neq "!=" conceal cchar=≠
+au VimEnter * syntax match arrow "->" conceal cchar=→
+au VimEnter * syntax match div "//" conceal cchar=÷
+au VimEnter * syntax match gteq ">=" conceal cchar=≥
+au VimEnter * syntax match lteq "<=" conceal cchar=≤
+
+color molokai
 
 nnoremap <F2> :set paste!<CR>
 "nnoremap <F3> :set hlsearch!<CR>
@@ -168,6 +175,7 @@ highlight Pmenu ctermfg=Yellow ctermbg=Blue
 highlight Search ctermfg=None ctermbg=None cterm=bold,underline
 highlight IncSearch ctermfg=Blue ctermbg=None
 highlight Comment ctermfg=DarkGreen
+highlight Conceal ctermfg=None ctermbg=None cterm=None
 
 autocmd FileType json,ruby,eruby,yaml,html,sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
 autocmd Filetype python let NERDSpaceDelims=0
