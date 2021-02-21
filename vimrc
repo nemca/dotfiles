@@ -109,7 +109,7 @@ set conceallevel=2
 set concealcursor=nvc
 au VimEnter * syntax match neq "!=" conceal cchar=≠
 au VimEnter * syntax match arrow "->" conceal cchar=→
-au VimEnter * syntax match div "//" conceal cchar=÷
+"au VimEnter * syntax match div "//" conceal cchar=÷
 au VimEnter * syntax match gteq ">=" conceal cchar=≥
 au VimEnter * syntax match lteq "<=" conceal cchar=≤
 
