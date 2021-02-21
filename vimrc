@@ -26,6 +26,7 @@ call vundle#begin()
     Plugin 'https://github.com/rodjek/vim-puppet.git'
     " Go
     Plugin 'fatih/vim-go'
+    Plugin 'Coornail/vim-go-conceal'
     Plugin 'fatih/molokai'
     Plugin 'majutsushi/tagbar'
     Plugin 'AndrewRadev/splitjoin.vim'
@@ -107,11 +108,12 @@ let NERDSpaceDelims = 1
 syntax on
 set conceallevel=2
 set concealcursor=nvc
-au VimEnter * syntax match neq "!=" conceal cchar=≠
-au VimEnter * syntax match arrow "->" conceal cchar=→
+" migrate to plugin 'Coornail/vim-go-conceal'
+"au VimEnter * syntax match neq "!=" conceal cchar=≠
+"au VimEnter * syntax match arrow "->" conceal cchar=→
 "au VimEnter * syntax match div "//" conceal cchar=÷
-au VimEnter * syntax match gteq ">=" conceal cchar=≥
-au VimEnter * syntax match lteq "<=" conceal cchar=≤
+"au VimEnter * syntax match gteq ">=" conceal cchar=≥
+"au VimEnter * syntax match lteq "<=" conceal cchar=≤
 
 color molokai
 
