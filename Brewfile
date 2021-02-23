@@ -1,5 +1,6 @@
 brew "bash"
 brew "coreutils"
+brew "ctags"
 brew "curl"
 brew "go"
 brew "grep"
