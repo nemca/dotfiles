@@ -26,8 +26,8 @@ export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 # =============
 alias ..='cd ..'
 alias gg='git grep'
-alias ll='ls -lh'
-alias ls='ls --color=auto'
+alias ll='ls -l'
+alias ls='ls --color=auto --group-directories-first --si'
 alias grep='grep --color=auto --devices=skip'
 alias egrep='egrep --color=auto --devices=skip'
 alias fgrep='fgrep --color=auto --devices=skip'
