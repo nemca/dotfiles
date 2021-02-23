@@ -1,0 +1,60 @@
+snippet apache "APACHE 2.0 LICENSE"
+/*
+Copyright © `!v strftime("%Y")` Michael Bruskov <mixanemca@yandex.ru>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+${0:${VISUAL}}
+endsnippet
+
+snippet main "main package and function"
+package main
+
+func main() {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet om "if key in map"
+if ${1:value}, ok := ${2:map}[${3:key}]; ok {
+	${4:/* code */}
+}
+
+endsnippet
+
+snippet leetest "leetcode test function"
+package leetcode
+
+func Test${1:name}(t *testing.T) {
+	tests := []struct{
+		${2:nums} ${3:[]int}
+		want ${4:[]int}
+	}{
+		${5:nums}: ${6:value},
+		want: ${7:[]int{}},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			${0:${VISUAL}}
+		})
+	}
+}
+endsnippet
+
+snippet test "test function"
+func Test${1:Name}(t *testing.T) {
+	${0:${VISUAL}}
+}
+endsnippet

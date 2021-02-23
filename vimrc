@@ -93,11 +93,12 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 "let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 "let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 let g:UltiSnipsExpandTrigger = "<C-e>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-
+let g:UltiSnipsJumpForwardTrigger="<C-f>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+" list all snippets for current filetype
+"let g:UltiSnipsListSnippets="<C-l>"
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsEditSplit="vertical"
 
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
@@ -129,6 +130,7 @@ nnoremap gt :tabnext<CR>
 nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <leader>m <Plug>(Vman)
 map <C-m> <Plug>(Vman)
