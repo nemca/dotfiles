@@ -1,9 +1,3 @@
-set nocompatible
-set autowrite
-set shell=/usr/local/bin/bash
-set directory=$HOME/.vim/swp
-filetype off
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
     Plugin 'gmarik/Vundle.vim'
@@ -35,6 +29,52 @@ call vundle#begin()
     Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+set nocompatible
+set autowrite
+set shell=/usr/local/bin/bash
+set directory=$HOME/.vim/swp
+filetype off
+set autoread                    " Automatically reread changed files without asking me anything
+set backspace=indent,eol,start  " Makes backspace key more powerful.
+set noerrorbells                " No beeps
+set noswapfile                  " Don't use swapfile
+set splitright                  " Split vertical windows right to the current windows
+set splitbelow                  " Split horizontal windows below to the current windows
+set autowrite                   " Automatically save before :next, :make etc.
+set termencoding=utf-8          " Set default encoding to UTF-8
+set t_vb=
+set showtabline=0
+set foldcolumn=0
+set wrap
+set linebreak
+set mousemodel=popup
+set completeopt-=preview
+set gcr=a:blinkon0
+set t_Co=256
+set complete=""
+set complete+=.
+set complete+=k
+set complete+=b
+set complete+=t
+set laststatus=2
+set autoindent
+set hlsearch
+set incsearch
+set ruler
+set smartcase
+set smartindent
+set showcmd
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab ts=4 sw=4 ai
+set nopaste
+set wildmenu
+set nocompatible              " be iMproved, required
+set backspace=indent,eol,start
+set noshowmode
+set number
 
 let mapleader=","
 let g:airline_theme='sol'
@@ -88,17 +128,10 @@ let g:go_template_autocreate = 0
 let g:go_metalinter_enabled = ['vet', 'golint']
 
 " Snippets https://github.com/SirVer/ultisnips
-"let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<C-f>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
-" list all snippets for current filetype
-"let g:UltiSnipsListSnippets="<C-l>"
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
 
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
@@ -122,13 +155,12 @@ nnoremap <F2> :set paste!<CR>
 "nnoremap <F3> :set hlsearch!<CR>
 nnoremap <F3> :set invnumber<CR>
 nnoremap <F5> :!go build<CR><CR>
-"nnoremap qw :silent! normal mpea'<Esc>bi'<Esc>`pl
-"nnoremap qd :silent! normal mpea"<Esc>bi"<Esc>`pl
-"nnoremap wq :silent! normal mpeld bhd `ph<CR>
 nnoremap gd :GoDef<CR>
 nnoremap gt :tabnext<CR>
 nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
+" Center the screen
+nnoremap <space> zz
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
@@ -138,41 +170,6 @@ cnoreabbrev man Man
 
 aunmenu Help.
 aunmenu Window.
-"let no_buffers_menu=1
-"set mouse=a "Включить поддержку мыши
-set termencoding=utf-8
-set t_vb=
-set showtabline=0
-set foldcolumn=0
-set wrap
-set linebreak
-set mousemodel=popup
-set completeopt-=preview
-set gcr=a:blinkon0
-set t_Co=256
-set complete=""
-set complete+=.
-set complete+=k
-set complete+=b
-set complete+=t
-set laststatus=2
-set autoindent
-set hlsearch
-set incsearch
-set ruler
-set smartcase
-set smartindent
-set showcmd
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab ts=4 sw=4 ai
-set nopaste
-set wildmenu
-set nocompatible              " be iMproved, required
-set backspace=indent,eol,start
-set noshowmode
-set number
 
 " цвет меню автодополнения
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
@@ -181,45 +178,62 @@ highlight IncSearch ctermfg=Blue ctermbg=None
 highlight Comment ctermfg=DarkGreen
 highlight Conceal ctermfg=None ctermbg=None cterm=None
 
-autocmd FileType json,ruby,eruby,yaml,html,sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
-autocmd Filetype python let NERDSpaceDelims=0
-autocmd BufNewFile,BufRead *.pp setlocal expandtab tabstop=2 shiftwidth=2
-autocmd BufNewFile,BufRead *.go setlocal expandtab tabstop=4 shiftwidth=4
-autocmd BufNewFile,BufRead *.tmpl setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
+augroup filetypedetect
+  command! -nargs=* -complete=help Help vertical belowright help <args>
+
+  autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
+  autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
+  autocmd BufNewFile,BufRead *.hcl setf conf
+  autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
+  autocmd BufNewFile,BufRead *.html setlocal noet ts=4 sw=4
+  autocmd BufNewFile,BufRead *.vim,vimrc setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd BufNewFile,BufRead *.pp setlocal expandtab tabstop=2 shiftwidth=2
+  " autocmd BufNewFile,BufRead *.go setlocal expandtab tabstop=4 shiftwidth=4
+  autocmd BufNewFile,BufRead *.tmpl setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
+  autocmd BufNewFile,BufRead *.sh setlocal expandtab shiftwidth=2 tabstop=2
+
+  autocmd FileType json,ruby,eruby,yaml,html,sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
+  autocmd Filetype python let NERDSpaceDelims=0
+  autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
+  autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
+augroup END
+
+" Go
+augroup go
+  autocmd FileType go nmap <Leader>s <Plug>(go-implements)
+  "autocmd FileType go nmap <Leader>i <Plug>(go-info)
+  autocmd FileType go nmap <Leader>gi <Plug>(go-install)
+  autocmd FileType go nmap <Leader>gd :GoDef<CR>
+  autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+  autocmd FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+  autocmd FileType go nmap <leader>r <Plug>(go-run)
+  autocmd FileType go nmap <leader>b <Plug>(go-build)
+  autocmd FileType go nmap <leader>t <Plug>(go-test)
+  autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+  "autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+  autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
+  autocmd FileType go nmap <Leader>e :GoIfErr<CR>
+  autocmd FileType go nmap <Leader>cn :cnext<CR>
+  autocmd FileType go nmap <Leader>cp :cprevious<CR>
+  autocmd FileType go nmap <Leader>a :GoAlternate<CR>
+  autocmd FileType go nmap <Leader>m :GoMetaLinter<CR>
+  autocmd FileType go nmap <Leader>l :GoLint<CR>
+  autocmd FileType go nmap <Leader>v :GoVet<CR>
+  autocmd FileType go nmap <Leader>gm :GoMetaLinter<CR>
+  autocmd FileType go nmap <Leader>atj :GoAddTags json<CR>
+  autocmd FileType go nmap <Leader>atx :GoAddTags xml<CR>
+  autocmd FileType go nmap <Leader>rtj :GoRemoveTags json<CR>
+  autocmd FileType go nmap <Leader>rtx :GoRemoveTags xml<CR>
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
-" Go
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gi <Plug>(go-install)
-au FileType go nmap <Leader>gd :GoDef<CR>
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-au FileType go nmap <Leader>e :GoIfErr<CR>
-au FileType go nmap <Leader>cn :cnext<CR>
-au FileType go nmap <Leader>cp :cprevious<CR>
-au FileType go nmap <Leader>a :GoAlternate<CR>
-au FileType go nmap <Leader>m :GoMetaLinter<CR>
-au FileType go nmap <Leader>l :GoLint<CR>
-au FileType go nmap <Leader>v :GoVet<CR>
-au FileType go nmap <Leader>gm :GoMetaLinter<CR>
-au FileType go nmap <Leader>atj :GoAddTags json<CR>
-au FileType go nmap <Leader>atx :GoAddTags xml<CR>
-au FileType go nmap <Leader>rtj :GoRemoveTags json<CR>
-au FileType go nmap <Leader>rtx :GoRemoveTags xml<CR>
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
