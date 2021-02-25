@@ -161,8 +161,8 @@ nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
 " Center the screen
 nnoremap <space> zz
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
+nmap <F8> :NERDTreeToggle<CR>
+nmap <F9> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 "map <leader>m <Plug>(Vman)
 map <C-m> <Plug>(Vman)
