@@ -1,32 +1,36 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-    Plugin 'gmarik/Vundle.vim'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'L9'
-    Plugin 'bruno-/vim-man'
-    Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-    "Plugin 'bling/vim-airline'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'https://github.com/ap/vim-templates.git'
-    Plugin 'https://github.com/henrik/vim-indexed-search.git'
-    Plugin 'https://github.com/scrooloose/nerdtree.git'
-    Plugin 'https://github.com/Raimondi/delimitMate'
-    Plugin 'https://github.com/scrooloose/nerdcommenter'
-    Plugin 'rizzatti/dash.vim'
-    " Python
-    Plugin 'https://github.com/nvie/vim-flake8'
-    " Puppet
-    Plugin 'https://github.com/rodjek/vim-puppet.git'
-    " Go
-    Plugin 'fatih/vim-go'
-    Plugin 'Coornail/vim-go-conceal'
-    Plugin 'fatih/molokai'
-    Plugin 'majutsushi/tagbar'
-    Plugin 'AndrewRadev/splitjoin.vim'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'honza/vim-snippets'
-    Plugin 'Valloric/YouCompleteMe'
+  Plugin 'gmarik/Vundle.vim'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'L9'
+  Plugin 'bruno-/vim-man'
+  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+  "Plugin 'bling/vim-airline'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'https://github.com/ap/vim-templates.git'
+  Plugin 'https://github.com/henrik/vim-indexed-search.git'
+  Plugin 'https://github.com/scrooloose/nerdtree.git'
+  Plugin 'https://github.com/Raimondi/delimitMate'
+  Plugin 'https://github.com/scrooloose/nerdcommenter'
+  Plugin 'rizzatti/dash.vim'
+  Plugin 'fatih/vim-nginx'
+  " Python
+  Plugin 'https://github.com/nvie/vim-flake8'
+  " Puppet
+  Plugin 'https://github.com/rodjek/vim-puppet.git'
+  " Go
+  Plugin 'fatih/vim-go'
+  Plugin 'Coornail/vim-go-conceal'
+  Plugin 'fatih/molokai'
+  Plugin 'majutsushi/tagbar'
+  Plugin 'AndrewRadev/splitjoin.vim'
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
+  Plugin 'Valloric/YouCompleteMe'
+  " Markdown
+  Plugin 'godlygeek/tabular'
+  Plugin 'plasticboy/vim-markdown'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -139,15 +143,18 @@ let delimitMate_expand_cr = 2
 " NERDcommenter
 let NERDSpaceDelims = 1
 
+" Markdown
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_no_extensions_in_markdown = 1
+
 syntax on
 set conceallevel=2
 set concealcursor=nvc
-" migrate to plugin 'Coornail/vim-go-conceal'
-"au VimEnter * syntax match neq "!=" conceal cchar=≠
-"au VimEnter * syntax match arrow "->" conceal cchar=→
-"au VimEnter * syntax match div "//" conceal cchar=÷
-"au VimEnter * syntax match gteq ">=" conceal cchar=≥
-"au VimEnter * syntax match lteq "<=" conceal cchar=≤
 
 color molokai
 
@@ -220,7 +227,9 @@ augroup go
   autocmd FileType go nmap <Leader>a :GoAlternate<CR>
   autocmd FileType go nmap <Leader>m :GoMetaLinter<CR>
   autocmd FileType go nmap <Leader>l :GoLint<CR>
-  autocmd FileType go nmap <Leader>v :GoVet<CR>
+  "autocmd FileType go nmap <Leader>v :GoVet<CR>
+  " :GoDef but opens in a vertical split
+  autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
   autocmd FileType go nmap <Leader>gm :GoMetaLinter<CR>
   autocmd FileType go nmap <Leader>atj :GoAddTags json<CR>
   autocmd FileType go nmap <Leader>atx :GoAddTags xml<CR>
