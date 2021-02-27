@@ -168,10 +168,10 @@ nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
 " Center the screen
 nnoremap <space> zz
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
+nmap <F8> :NERDTreeToggle<CR>
+nmap <F9> :TagbarToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
-map <leader>m <Plug>(Vman)
+"map <leader>m <Plug>(Vman)
 map <C-m> <Plug>(Vman)
 cnoreabbrev man Man
 
@@ -219,8 +219,9 @@ augroup go
   autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go nmap <leader>c <Plug>(go-coverage)
   "autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+  autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
   autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
+  "autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
   autocmd FileType go nmap <Leader>e :GoIfErr<CR>
   autocmd FileType go nmap <Leader>cn :cnext<CR>
   autocmd FileType go nmap <Leader>cp :cprevious<CR>
