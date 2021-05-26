@@ -130,6 +130,7 @@ zstyle ':completion:*' list-dirs-first true
 
 complete -o nospace -C /usr/local/bin/consul consul
 complete -o nospace -C /usr/local/bin/minio-client minio-client
+complete -W "$(curl --connect-timeout 1 --max-time 2 -sk 'https://dnsaas-proxy.msk.avito.ru/zone/info/?zone=msk.avito.ru' | jq -r '.rrsets | .[] | .name')" t pup
 
 # ===================
 #    KEY BINDINGS
