@@ -1,4 +1,7 @@
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# =============
+#  ENVIRONMENT
+# =============
+export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
