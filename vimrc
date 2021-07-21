@@ -159,6 +159,7 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 let g:stash_line_map = '<leader>st'
 let g:stash_line_git_remote = 'upstream'
 let g:stash_line_trace = 1
+let g:stash_line_domain = 'stash.msk.avito.ru'
 
 syntax on
 set conceallevel=2
