@@ -35,6 +35,8 @@ call vundle#begin()
   " Plugin 'ruanyl/vim-gh-line'
   " Stash
   Plugin 'nemca/vim-stash-line'
+  " Terminal
+  Plugin 'voldikss/vim-floaterm'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -160,6 +162,19 @@ let g:stash_line_map = '<leader>st'
 let g:stash_line_git_remote = 'upstream'
 let g:stash_line_trace = 1
 let g:stash_line_domain = 'stash.msk.avito.ru'
+" Terminal
+let g:floaterm_shell = 'zsh'
+let g:floaterm_wintype = 'split'
+let g:floaterm_height = 0.4
+let g:floaterm_autoclose = 2
+let g:floaterm_keymap_toggle = '<F7>'
+autocmd QuitPre * call <sid>TermForceCloseAll()
+function! s:TermForceCloseAll() abort
+    let term_bufs = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
+    for t in term_bufs
+            execute "bd! " t
+    endfor
+endfunction
 
 syntax on
 set conceallevel=2
