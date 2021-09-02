@@ -195,13 +195,14 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #    MISC FUNCTIONS
 # ===================
 t() {
+  local username=${2:-mvbruskov}
   if [[ -n ${1} ]]; then
-    if ! ssh ${1} ls -1 \$HOME/.tmux.conf 1>/dev/null 2>&1; then
-      scp $HOME/.tmux.conf ${1}: >/dev/null
+    if ! ssh ${1} -l ${username} ls -1 \$HOME/.tmux.conf 1>/dev/null 2>&1; then
+      scp $HOME/.tmux.conf ${username}@${1}: >/dev/null
     fi
-    if ! ssh ${1} ls -1 \$HOME/.vimrc 1>/dev/null 2>&1; then
-      scp $HOME/.vimrc-servers ${1}:.vimrc >/dev/null
+    if ! ssh ${1} -l ${username} ls -1 \$HOME/.vimrc 1>/dev/null 2>&1; then
+      scp $HOME/.vimrc-servers ${username}@${1}:.vimrc >/dev/null
     fi
-    ssh -t ${1} "tmux attach || tmux new -s mbr"
+    ssh -l ${username} -t ${1} "tmux attach || tmux new -s mbr"
   fi
 }
