@@ -80,6 +80,8 @@
 
     fm = "!sh -c 'git show `git rev-list --ancestry-path $0..dev --merges | tail -f`'"
 
+    tagcommit = rev-list -n 1
+
 [diff]
     noprefix = true
     ignoreSubmodules = all
