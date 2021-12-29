@@ -1,20 +1,23 @@
 # =============
 #  ENVIRONMENT
 # =============
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+BREWHOME="/usr/local"
+if [[ "arm" == $(uname -p) ]]; then
+    BREWHOME="/opt/homebrew"
+fi
+export PATH="${BREWHOME}/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="${BREWHOME}/opt/openssl@1.1/bin:$PATH"
+export PATH="${BREWHOME}/opt/curl/bin:$PATH"
+export PATH="${BREWHOME}/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="${BREWHOME}/opt/gnu-getopt/bin:$PATH"
+export PATH="${BREWHOME}/opt/grep/libexec/gnubin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="${BREWHOME}/bin:/opt/homebrew/sbin:$PATH"
 
 export CDPATH="$HOME/git/avito:$HOME/go/src/github.com/mixanemca"
 
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export LDFLAGS="-L${BREWHOME}/opt/openssl@1.1/lib"
+export CPPFLAGS="-I${BREWHOME}/opt/openssl@1.1/include"
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -22,7 +25,6 @@ export LANG="en_US.UTF-8"
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.rvm/scripts/rvm ] && source ~/.rvm/scripts/rvm
 [ -f ~/.zshrc-private ] && source ~/.zshrc-private
 
 # =============
@@ -131,9 +133,8 @@ zstyle ':completion:*' rehash true
 # Keep directories and files separated
 zstyle ':completion:*' list-dirs-first true
 
-complete -o nospace -C /usr/local/bin/consul consul
-complete -o nospace -C /usr/local/bin/minio-client minio-client
-complete -W "$(curl --connect-timeout 1 --max-time 2 -sk 'https://dnsaas-proxy.msk.avito.ru/zone/info/?zone=msk.avito.ru' | jq -r '.rrsets | .[] | .name')" t pup
+complete -o nospace -C ${BREWHOME}/bin/consul consul
+complete -o nospace -C ${BREWHOME}/bin/minio-client minio-client
 
 # ===================
 #    KEY BINDINGS
@@ -188,14 +189,14 @@ typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 # ===================
 
 # These are installed via github.com/fatih/dotfiles/Brewfile
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${BREWHOME}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${BREWHOME}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ===================
 #    MISC FUNCTIONS
 # ===================
 t() {
-  local username=${2:-mvbruskov}
+  local username=${2:-mikhail.b}
   if [[ -n ${1} ]]; then
     if ! ssh ${1} -l ${username} ls -1 \$HOME/.tmux.conf 1>/dev/null 2>&1; then
       scp $HOME/.tmux.conf ${username}@${1}: >/dev/null
