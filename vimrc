@@ -179,6 +179,7 @@ endfunction
 syntax on
 set conceallevel=2
 set concealcursor=nvc
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 color molokai
 
