@@ -1,3 +1,4 @@
+brew "ansible"
 brew "bash"
 brew "cloc"
 brew "coreutils"
