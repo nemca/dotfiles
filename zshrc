@@ -196,7 +196,7 @@ source ${BREWHOME}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #    MISC FUNCTIONS
 # ===================
 t() {
-  local username=${2:-mikhail.b}
+  local username=${2:-deploy}
   if [[ -n ${1} ]]; then
     if ! ssh ${1} -l ${username} ls -1 \$HOME/.tmux.conf 1>/dev/null 2>&1; then
       scp $HOME/.tmux.conf ${username}@${1}: >/dev/null
