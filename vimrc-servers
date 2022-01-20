@@ -1,0 +1,53 @@
+syntax on
+
+nnoremap <F2> :set paste!<CR>
+nnoremap <F3> :set invnumber<CR>
+
+aunmenu Help.
+aunmenu Window.
+set termencoding=utf-8
+set t_vb=
+set showtabline=0
+set foldcolumn=0
+set wrap
+set linebreak
+set mousemodel=popup
+set completeopt-=preview
+set gcr=a:blinkon0
+set t_Co=256
+set complete=""
+set complete+=.
+set complete+=k
+set complete+=b
+set complete+=t
+set laststatus=2
+set autoindent
+set hlsearch
+set incsearch
+set ruler
+set smartcase
+set smartindent
+set showcmd
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab ts=4 sw=4 ai
+set nopaste
+set wildmenu
+set nocompatible              " be iMproved, required
+set backspace=indent,eol,start
+set noshowmode
+"set number
+
+highlight Pmenu ctermfg=Yellow ctermbg=Blue
+highlight Search ctermfg=None ctermbg=None cterm=bold,underline
+highlight IncSearch ctermfg=Blue ctermbg=None
+highlight Comment ctermfg=DarkGreen
+highlight LineNr ctermfg=DarkGrey
+
+autocmd FileType json,ruby,eruby,yaml,html,sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
+
+" Uncomment the following to have Vim jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif     
+endif
