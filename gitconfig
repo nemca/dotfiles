@@ -96,3 +96,5 @@
 [user]
 	name = Michael Bruskov
 	email = mixanemca@yandex.ru
+[init]
+	defaultBranch = main
