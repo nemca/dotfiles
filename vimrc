@@ -15,6 +15,7 @@ call vundle#begin()
   Plugin 'https://github.com/scrooloose/nerdcommenter'
   Plugin 'rizzatti/dash.vim'
   Plugin 'fatih/vim-nginx'
+  Plugin 'https://github.com/tpope/vim-surround'
   " Python
   Plugin 'https://github.com/nvie/vim-flake8'
   " Puppet
@@ -150,7 +151,7 @@ let delimitMate_expand_cr = 2
 let NERDSpaceDelims = 1
 
 " Markdown
-let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
@@ -188,9 +189,16 @@ nnoremap <F2> :set paste!<CR>
 nnoremap <F3> :set invnumber<CR>
 nnoremap <F5> :!go build<CR><CR>
 nnoremap gd :GoDef<CR>
+nnoremap tn :tabnew 
 nnoremap gt :tabnext<CR>
 nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
+nnoremap H gT
+nnoremap L gt
+" Quotes
+nnoremap <Leader>q" ciw""<Esc>P
+nnoremap <Leader>q' ciw''<Esc>P
+nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>P
 " Center the screen
 nnoremap <space> zz
 nmap <F8> :NERDTreeToggle<CR>
@@ -246,7 +254,7 @@ augroup go
   "autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
   autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
   autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  "autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
+  autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
   autocmd FileType go nmap <Leader>e :GoIfErr<CR>
   autocmd FileType go nmap <Leader>cn :cnext<CR>
   autocmd FileType go nmap <Leader>cp :cprevious<CR>
