@@ -2,6 +2,17 @@ syntax on
 
 nnoremap <F2> :set paste!<CR>
 nnoremap <F3> :set invnumber<CR>
+nnoremap tn :tabnew 
+nnoremap gt :tabnext<CR>
+nnoremap gT :tabprevious<CR>
+nnoremap T :tabs<CR>
+nnoremap H gT
+nnoremap L gt
+" Quotes
+nnoremap <Leader>q" ciw""<Esc>P
+nnoremap <Leader>q' ciw''<Esc>P
+nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>P
+"noremap <F3> :set invnumber<CR>
 
 aunmenu Help.
 aunmenu Window.
