@@ -206,3 +206,9 @@ t() {
     ssh -t ${1} "tmux attach || tmux new -s mbr"
   fi
 }
+
+# The next line updates PATH for the Google Cloud SDK.
+[ -f '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc' ] && source '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+[ -f '/Users/mbr/gcp/google-cloud-sdk/completion.zsh.inc' ] && source '/Users/mbr/gcp/google-cloud-sdk/completion.zsh.inc'
