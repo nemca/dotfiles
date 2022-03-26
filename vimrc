@@ -136,7 +136,8 @@ let g:go_textobj_include_function_doc = 1
 let g:go_snippet_case_type = 'camelcase'
 let g:go_auto_type_info = 1
 let g:go_template_autocreate = 0
-let g:go_metalinter_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golangci-lint']
+let g:go_jump_to_error = 1
 
 " Snippets https://github.com/SirVer/ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
