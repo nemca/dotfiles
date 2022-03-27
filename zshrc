@@ -28,6 +28,9 @@ export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc-private ] && source ~/.zshrc-private
 
+# Disable security to restrict multithreading
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # =============
 #    ALIAS
 # =============
