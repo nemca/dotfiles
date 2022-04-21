@@ -18,6 +18,7 @@
 [push]
     #default = current
     default = simple
+    #gpgSign = true
 
 [pack]
     threads = 4
@@ -96,5 +97,12 @@
 [user]
 	name = Michael Bruskov
 	email = mixanemca@yandex.ru
+	signingkey = 1A34D6EAA54FD6CCB1236D7A4FEF982AB5C7E961
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[log]
+	showSignature = true
