@@ -38,6 +38,12 @@ call vundle#begin()
   Plugin 'nemca/vim-stash-line'
   " Terminal
   Plugin 'voldikss/vim-floaterm'
+  " Toml
+  Plugin 'cespare/vim-toml'
+  " Tmux
+  Plugin 'tmux-plugins/vim-tmux'
+  Plugin 'tmux-plugins/vim-tmux-focus-events'
+  Plugin 'edkolev/tmuxline.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -117,7 +123,8 @@ let g:templates_empty_files = 1
 let python_highlight_all = 1
 " Puppet. Disable automatic => alignment
 let g:puppet_align_hashes = 0
-"Go
+
+" ========== vim-go ==========
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
@@ -129,15 +136,35 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
+
 let g:go_fmt_command = 'goimports'
+let g:go_fmt_fail_silently = 1
+
+let g:go_list_type = "quickfix"
+
 let g:go_def_mode= 'gopls'
 let g:go_test_timeout = '10s'
+let g:go_test_show_name = 1
 let g:go_textobj_include_function_doc = 1
 let g:go_snippet_case_type = 'camelcase'
 let g:go_auto_type_info = 1
+let g:go_autodetect_gopath = 1
 let g:go_template_autocreate = 0
 let g:go_metalinter_enabled = ['vet', 'golangci-lint']
 let g:go_jump_to_error = 1
+
+let g:go_gopls_complete_unimported = 1
+let g:go_gopls_gofumpt = 1
+
+" 2 is for errors and warnings
+let g:go_diagnostics_level = 2
+let g:go_doc_popup_window = 1
+let g:go_doc_balloon = 1
+
+let g:go_debug_windows = {
+  \ 'vars':  'leftabove 35vnew',
+  \ 'stack': 'botright 10new',
+\ }
 
 " Snippets https://github.com/SirVer/ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
@@ -249,6 +276,7 @@ augroup go
   autocmd FileType go nmap <Leader>gd :GoDef<CR>
   autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
   autocmd FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+  autocmd FileType go nmap <silent> <Leader>i <Plug>(go-doc)
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
