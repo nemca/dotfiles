@@ -105,4 +105,6 @@
 [tag]
 	gpgSign = true
 [log]
-	showSignature = true
+	showSignature = false
+[url "git@github.com:vegaprotocol"]
+	insteadOf = https://github.com/vegaprotocol
