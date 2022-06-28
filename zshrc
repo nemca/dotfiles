@@ -25,6 +25,8 @@ export LANG="en_US.UTF-8"
 
 export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
+export GPG_TTY=$(tty)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc-private ] && source ~/.zshrc-private
 
