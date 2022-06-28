@@ -49,7 +49,7 @@ filetype plugin indent on    " required
 
 set nocompatible
 set autowrite
-set shell=/usr/local/bin/bash
+set shell=/usr/bin/bash
 set directory=$HOME/.vim/swp
 filetype off
 set autoread                    " Automatically reread changed files without asking me anything
