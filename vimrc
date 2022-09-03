@@ -5,7 +5,6 @@ call vundle#begin()
   Plugin 'L9'
   Plugin 'bruno-/vim-man'
   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-  "Plugin 'bling/vim-airline'
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
   Plugin 'https://github.com/ap/vim-templates.git'
@@ -32,10 +31,6 @@ call vundle#begin()
   " Markdown
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown'
-  " Github/Gitlab/Bitbucket
-  " Plugin 'ruanyl/vim-gh-line'
-  " Stash
-  Plugin 'nemca/vim-stash-line'
   " Terminal
   Plugin 'voldikss/vim-floaterm'
   " Toml
@@ -49,7 +44,7 @@ filetype plugin indent on    " required
 
 set nocompatible
 set autowrite
-set shell=/usr/bin/bash
+set shell=/usr/local/bin/bash
 set directory=$HOME/.vim/swp
 filetype off
 set autoread                    " Automatically reread changed files without asking me anything
@@ -96,11 +91,9 @@ set number
 let mapleader=","
 let g:airline_theme='sol'
 let g:airline_powerline_fonts = 0
-let g:airline_section_b = '%{hostname()} %{fugitive#head()}'
-"let g:airline_section_b = '%{strftime("%H:%M")} %{fugitive#head()}'
+let g:airline_section_b = '%{hostname()} %{FugitiveHead()}'
 let g:airline_section_c = '%t'
-"let g:airline_section_c = '%{fugitive#head()} %t'
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:bufferline_echo = 0
