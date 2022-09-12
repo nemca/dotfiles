@@ -89,13 +89,16 @@ set noshowmode
 set number
 
 let mapleader=","
-let g:airline_theme='sol'
+let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 0
 let g:airline_section_b = '%{hostname()} %{FugitiveHead()}'
 let g:airline_section_c = '%t'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#show_tab_nr = 0
 let g:bufferline_echo = 0
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
