@@ -153,6 +153,11 @@ zstyle ':completion:*' rehash true
 # Keep directories and files separated
 zstyle ':completion:*' list-dirs-first true
 
+# Better SSH/Rsync/SCP Autocomplete
+zstyle ':completion:*:(scp|rsync):*' tag-order ' hosts:-ipaddr:ip\ address hosts:-host:host files'
+zstyle ':completion:*:(ssh|scp|rsync|t):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
+zstyle ':completion:*:(ssh|scp|rsync|t):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
+
 complete -o nospace -C ${BREWHOME}/bin/consul consul
 complete -o nospace -C ${BREWHOME}/bin/minio-client minio-client
 
@@ -226,6 +231,7 @@ t() {
     ssh -t ${1} "tmux attach || tmux new -s mbr"
   fi
 }
+compdef _ssh t=ssh
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc' ] && source '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc'
