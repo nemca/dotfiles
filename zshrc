@@ -30,8 +30,10 @@ export GPG_TTY=$(tty)
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
+# To save every command before it is executed
 setopt INC_APPEND_HISTORY
-setopt SHARE_HISTORY
+# To read the history file everytime history is called upon as well as the functionality from inc_append_history
+unsetopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
