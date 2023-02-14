@@ -15,6 +15,7 @@ call vundle#begin()
   Plugin 'rizzatti/dash.vim'
   Plugin 'fatih/vim-nginx'
   Plugin 'https://github.com/tpope/vim-surround'
+  Plugin 'hashivim/vim-terraform'
   " Python
   Plugin 'https://github.com/nvie/vim-flake8'
   " Puppet
