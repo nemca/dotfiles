@@ -18,6 +18,7 @@ call vundle#begin()
   Plugin 'hashivim/vim-terraform'
   " Python
   Plugin 'https://github.com/nvie/vim-flake8'
+  Plugin 'pearofducks/ansible-vim'
   " Puppet
   Plugin 'https://github.com/rodjek/vim-puppet.git'
   " Go
@@ -129,6 +130,16 @@ let g:templates_empty_files = 1
 let python_highlight_all = 1
 " Puppet. Disable automatic => alignment
 let g:puppet_align_hashes = 0
+
+" ========== ansible ==========
+let g:ansible_attribute_highlight = "od"
+let g:ansible_name_highlight = 'd'
+let g:ansible_extra_keywords_highlight = 1
+let g:ansible_extra_keywords_highlight_group = 'Statement'
+let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_loop_keywords_highlight = 'Constant'
+let g:ansible_ftdetect_filename_regex = '\v(playbook|site|main|local|requirements|install|configure|services|stop|reset)\.ya?ml$'
+let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
 
 " ========== vim-go ==========
 let g:go_highlight_functions = 1
