@@ -218,6 +218,12 @@ typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 # These are installed via github.com/fatih/dotfiles/Brewfile
 source ${BREWHOME}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${BREWHOME}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#: ${ZSH_HIGHLIGHT_STYLES[path]:=fg=black}
+#: ${ZSH_HIGHLIGHT_STYLES[path_pathseparator]:=fg=black}
+#: ${ZSH_HIGHLIGHT_STYLES[path_prefix]:=fg=black}
+#: ${ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]:=fg=black}
+#: ${ZSH_HIGHLIGHT_STYLES[default]:=fg=black}
+bindkey '^s' autosuggest-accept
 
 # ===================
 #    MISC FUNCTIONS

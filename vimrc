@@ -23,12 +23,14 @@ call vundle#begin()
   " Go
   Plugin 'fatih/vim-go'
   Plugin 'Coornail/vim-go-conceal'
-  Plugin 'fatih/molokai'
   Plugin 'majutsushi/tagbar'
   Plugin 'AndrewRadev/splitjoin.vim'
   Plugin 'SirVer/ultisnips'
   Plugin 'honza/vim-snippets'
   Plugin 'Valloric/YouCompleteMe'
+  " Themes
+  Plugin 'gruvbox-community/gruvbox'
+  Plugin 'fatih/molokai'
   " Markdown
   Plugin 'godlygeek/tabular'
   Plugin 'plasticboy/vim-markdown'
@@ -85,12 +87,16 @@ set expandtab ts=4 sw=4 ai
 set nopaste
 set wildmenu
 set nocompatible              " be iMproved, required
-set backspace=indent,eol,start
 set noshowmode
 set number
+set background=light
+set termguicolors
+set spelllang=en
 
 let mapleader=","
-let g:airline_theme='minimalist'
+
+" ========== airline ==========
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 0
 let g:airline_section_b = '%{hostname()} %{FugitiveHead()}'
 let g:airline_section_c = '%t'
@@ -100,11 +106,14 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#show_tab_nr = 0
-let g:bufferline_echo = 0
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+
+let g:bufferline_echo = 0
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_contrast_light = "hard"
 let g:molokai_original = 1
 let g:rehash256 = 1
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
@@ -123,21 +132,27 @@ let g:puppet_align_hashes = 0
 
 " ========== vim-go ==========
 let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
+let g:go_highlight_fields = 0
+let g:go_highlight_types = 0
 let g:go_highlight_extra_types = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 1
 
 let g:go_fmt_command = 'goimports'
 let g:go_fmt_fail_silently = 1
 
 let g:go_list_type = "quickfix"
+
+let g:go_imports_mode="gopls"
+let g:go_imports_autosave=1
 
 let g:go_def_mode= 'gopls'
 let g:go_test_timeout = '10s'
@@ -207,14 +222,15 @@ set conceallevel=2
 set concealcursor=nvc
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-color molokai
+" color molokai
+color gruvbox
 
 nnoremap <F2> :set paste!<CR>
 "nnoremap <F3> :set hlsearch!<CR>
 nnoremap <F3> :set invnumber<CR>
 nnoremap <F5> :!go build<CR><CR>
 nnoremap gd :GoDef<CR>
-nnoremap tn :tabnew 
+nnoremap tn :tabnew<SPACE>
 nnoremap gt :tabnext<CR>
 nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
@@ -233,8 +249,8 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-m> <Plug>(Vman)
 cnoreabbrev man Man
 
-aunmenu Help.
-aunmenu Window.
+" aunmenu Help.
+" aunmenu Window.
 
 " цвет меню автодополнения
 highlight Pmenu ctermfg=Yellow ctermbg=Blue
@@ -242,6 +258,7 @@ highlight Search ctermfg=None ctermbg=None cterm=bold,underline
 highlight IncSearch ctermfg=Blue ctermbg=None
 highlight Comment ctermfg=DarkGreen
 highlight Conceal ctermfg=None ctermbg=None cterm=None
+highlight SpellBad ctermfg=None ctermbg=None cterm=underline,bold
 
 augroup filetypedetect
   command! -nargs=* -complete=help Help vertical belowright help <args>
@@ -249,7 +266,7 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
   autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
   autocmd BufNewFile,BufRead *.hcl setf conf
-  autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
+  autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 spell
   autocmd BufNewFile,BufRead *.html setlocal noet ts=4 sw=4
   autocmd BufNewFile,BufRead *.vim,vimrc setlocal expandtab shiftwidth=2 tabstop=2
   autocmd BufNewFile,BufRead *.pp setlocal expandtab tabstop=2 shiftwidth=2
