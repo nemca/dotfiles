@@ -108,3 +108,5 @@
 	showSignature = false
 [url "git@github.com:vegaprotocol"]
 	insteadOf = https://github.com/vegaprotocol
+[gpg "ssh"]
+	allowedSignersFile = /Users/mbr/.ssh/allowed_signers
