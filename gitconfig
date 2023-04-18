@@ -19,6 +19,7 @@
     #default = current
     default = simple
     #gpgSign = true
+    followTags = true
 
 [pack]
     threads = 4
@@ -90,23 +91,23 @@
 [help]
     autocorrect = 1
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
 [user]
-	name = Michael Bruskov
-	email = mixanemca@yandex.ru
-	signingkey = 1A34D6EAA54FD6CCB1236D7A4FEF982AB5C7E961
+    name = Michael Bruskov
+    email = mixanemca@yandex.ru
+    signingkey = 1A34D6EAA54FD6CCB1236D7A4FEF982AB5C7E961
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [commit]
-	gpgsign = true
+    gpgsign = true
 [tag]
-	gpgSign = true
+    gpgSign = true
 [log]
-	showSignature = false
+    showSignature = false
 [url "git@github.com:vegaprotocol"]
-	insteadOf = https://github.com/vegaprotocol
+    insteadOf = https://github.com/vegaprotocol
 [gpg "ssh"]
-	allowedSignersFile = /Users/mbr/.ssh/allowed_signers
+    allowedSignersFile = /Users/mbr/.ssh/allowed_signers
