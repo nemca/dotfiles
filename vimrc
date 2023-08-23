@@ -90,14 +90,15 @@ set wildmenu
 set nocompatible              " be iMproved, required
 set noshowmode
 set number
-set background=light
+" set background=light
+" set background=dark
 set termguicolors
-set spelllang=en
+" set spelllang=en
 
 let mapleader=","
 
 " ========== airline ==========
-let g:airline_theme='gruvbox'
+let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 0
 let g:airline_section_b = '%{hostname()} %{FugitiveHead()}'
 let g:airline_section_c = '%t'
@@ -178,6 +179,7 @@ let g:go_jump_to_error = 1
 
 let g:go_gopls_complete_unimported = 1
 let g:go_gopls_gofumpt = 1
+let g:go_build_tags = '!nomdadm mdadm'
 
 " 2 is for errors and warnings
 let g:go_diagnostics_level = 2
@@ -233,8 +235,8 @@ set conceallevel=2
 set concealcursor=nvc
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-" color molokai
-color gruvbox
+color molokai
+" color gruvbox
 
 nnoremap <F2> :set paste!<CR>
 "nnoremap <F3> :set hlsearch!<CR>
@@ -277,7 +279,8 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
   autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
   autocmd BufNewFile,BufRead *.hcl setf conf
-  autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 spell
+  autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
+  " autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 spell
   autocmd BufNewFile,BufRead *.html setlocal noet ts=4 sw=4
   autocmd BufNewFile,BufRead *.vim,vimrc setlocal expandtab shiftwidth=2 tabstop=2
   autocmd BufNewFile,BufRead *.pp setlocal expandtab tabstop=2 shiftwidth=2
@@ -291,6 +294,7 @@ augroup filetypedetect
   autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
   autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
   autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 augroup END
 
 " Go
