@@ -57,8 +57,8 @@ alias gg='git grep'
 alias ll='ls -l'
 alias ls='ls --color=auto --group-directories-first --si'
 alias grep='grep --color=auto --devices=skip'
-alias egrep='egrep --color=auto --devices=skip'
-alias fgrep='fgrep --color=auto --devices=skip'
+alias egrep='grep -E --color=auto --devices=skip'
+alias fgrep='grep -F --color=auto --devices=skip'
 
 # =============
 #    OPTIONS
