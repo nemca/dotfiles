@@ -87,6 +87,7 @@
 [diff]
     noprefix = true
     ignoreSubmodules = all
+    external = difft
 
 [help]
     autocorrect = 1
