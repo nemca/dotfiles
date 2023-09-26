@@ -246,3 +246,9 @@ compdef _ssh t=ssh
 
 # The next line enables shell command completion for gcloud.
 [ -f '/Users/mbr/gcp/google-cloud-sdk/completion.zsh.inc' ] && source '/Users/mbr/gcp/google-cloud-sdk/completion.zsh.inc'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mbr/gcp/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mbr/gcp/google-cloud-sdk/completion.zsh.inc'; fi
