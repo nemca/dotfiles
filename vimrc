@@ -249,6 +249,7 @@ nnoremap gT :tabprevious<CR>
 nnoremap T :tabs<CR>
 nnoremap H gT
 nnoremap L gt
+nnoremap md :!glow --pager --local % <CR><CR>
 " Quotes
 nnoremap <Leader>q" ciw""<Esc>P
 nnoremap <Leader>q' ciw''<Esc>P

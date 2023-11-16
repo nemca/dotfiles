@@ -27,6 +27,8 @@ export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 export GPG_TTY=$(tty)
 
+export EDITOR="vim"
+
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
