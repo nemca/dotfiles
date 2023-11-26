@@ -311,6 +311,7 @@ augroup go
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+  autocmd FileType go nmap <leader>C <Plug>(go-coverage-clear)
   "autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
   autocmd FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
   autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
