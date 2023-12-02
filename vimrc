@@ -239,8 +239,8 @@ color molokai
 " color gruvbox
 
 nnoremap <F2> :set paste!<CR>
-"nnoremap <F3> :set hlsearch!<CR>
-nnoremap <F3> :set invnumber<CR>
+nnoremap <F3> :set hlsearch!<CR>
+nnoremap <F4> :set invnumber<CR>
 nnoremap <F5> :!go build<CR><CR>
 nnoremap gd :GoDef<CR>
 nnoremap tn :tabnew<SPACE>
