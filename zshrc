@@ -15,7 +15,7 @@ export PATH="${BREWHOME}/opt/grep/libexec/gnubin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="${BREWHOME}/bin:/opt/homebrew/sbin:$PATH"
 
-export CDPATH="$HOME/git/nemca:$HOME/git/mixanemca:$HOME/go/src/github.com/mixanemca:$HOME/go/src/github.com/nemca:$HOME/git/p2p-org"
+export CDPATH="$HOME/git/nemca:$HOME/git/mixanemca:$HOME/git/perfectcircletech:$HOME/go/src/github.com/mixanemca:$HOME/go/src/github.com/nemca:$HOME/git/p2p-org"
 
 export LDFLAGS="-L${BREWHOME}/opt/openssl@1.1/lib"
 export CPPFLAGS="-I${BREWHOME}/opt/openssl@1.1/include"
