@@ -75,6 +75,11 @@ unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
 
 # =============
+#    LIMITS
+# =============
+ulimit -n 2048
+
+# =============
 #    PROMPT
 # =============
 autoload -U colors && colors
