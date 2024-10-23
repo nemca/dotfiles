@@ -45,9 +45,6 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.zshrc-private ] && source ~/.zshrc-private
-
 # Disable security to restrict multithreading
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
@@ -247,6 +244,9 @@ t() {
   fi
 }
 compdef _ssh t=ssh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zshrc-private ] && source ~/.zshrc-private
 
 # The next line updates PATH for the Google Cloud SDK.
 [ -f '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc' ] && source '/Users/mbr/gcp/google-cloud-sdk/path.zsh.inc'
