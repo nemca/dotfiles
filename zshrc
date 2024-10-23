@@ -245,6 +245,13 @@ t() {
 }
 compdef _ssh t=ssh
 
+# ssh-agent
+export SSH_AUTH_SOCK="${TMPDIR}/ssh-agent.socket"
+if ! pgrep -q ssh-agent; then
+  eval $(ssh-agent -a "${SSH_AUTH_SOCK}"| sed -r '/Agent pid/ d')
+fi
+export SSH_AGENT_PID=$(lsof -t "${SSH_AUTH_SOCK}")
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc-private ] && source ~/.zshrc-private
 
