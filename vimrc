@@ -243,7 +243,7 @@ nnoremap <F3> :set hlsearch!<CR>
 nnoremap <C-s> :set hlsearch!<CR>
 nnoremap <F4> :set invnumber<CR>
 nnoremap <F5> :!go build<CR><CR>
-nnoremap <C-1> :set nonumber!<CR>
+nnoremap <C-3> :set nonumber!<CR>
 nnoremap gd :GoDef<CR>
 nnoremap tn :tabnew<SPACE>
 nnoremap gt :tabnext<CR>
@@ -260,9 +260,11 @@ nnoremap <Leader>qd daW"=substitute(@@,"'\\\|\"","","g")<CR>P
 nnoremap <space> zz
 nmap <F8> :NERDTreeToggle<CR>
 nmap <C-t> :TagbarToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-0> :TagbarToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-1> :NERDTreeToggle<CR>
 "map <leader>m <Plug>(Vman)
-map <C-m> <Plug>(Vman)
+"map <C-m> <Plug>(Vman)
 cnoreabbrev man Man
 
 " aunmenu Help.
