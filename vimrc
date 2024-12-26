@@ -48,7 +48,7 @@ filetype plugin indent on    " required
 
 set nocompatible
 set autowrite
-set shell=/usr/local/bin/bash
+set shell=/opt/homebrew/bin/bash
 set directory=$HOME/.vim/swp
 filetype off
 set autoread                    " Automatically reread changed files without asking me anything
@@ -118,12 +118,12 @@ let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_light = "hard"
 let g:molokai_original = 1
 let g:rehash256 = 1
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:tagbar_ctags_bin='/opt/homebrew/bin/ctags'
 let g:tagbar_width = 55
 let g:tagbar_hide_nonpublic = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_autoshowtag = 0
-let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
+let g:ycm_server_python_interpreter = '/opt/homebrew/bin/python3'
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_global_ycm_extra_conf = '/Users/mbr/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:templates_empty_files = 1
