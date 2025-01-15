@@ -12,13 +12,16 @@ export PATH="${BREWHOME}/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="${BREWHOME}/opt/gnu-getopt/bin:$PATH"
 export PATH="${BREWHOME}/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="${BREWHOME}/opt/grep/libexec/gnubin:$PATH"
+export PATH="${BREWHOME}/opt/lsof/bin:$PATH"
+export PATH="${BREWHOME}/opt/jpeg/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="${BREWHOME}/bin:/opt/homebrew/sbin:$PATH"
 
 export CDPATH="$HOME/git/nemca:$HOME/git/mixanemca:$HOME/git/perfectcircletech:$HOME/go/src/github.com/mixanemca:$HOME/go/src/github.com/nemca:$HOME/git/p2p-org:$HOME/git/sdg"
 
-export LDFLAGS="-L${BREWHOME}/opt/openssl@1.1/lib"
-export CPPFLAGS="-I${BREWHOME}/opt/openssl@1.1/include"
+export LDFLAGS="-L${BREWHOME}/opt/openssl@1.1/lib -L${BREWHOME}/opt/jpeg/lib -L${BREWHOME}/Cellar/jpeg/9f/lib -L${BREWHOME}/lib"
+export CPPFLAGS="-I${BREWHOME}/opt/openssl@1.1/include -I${BREWHOME}/opt/jpeg/include -I${BREWHOME}/include -I${BREWHOME}/Cellar/jpeg/9f/include -I${BREWHOME}/Cellar/webp/1.5.0/include"
+export PKG_CONFIG_PATH="${BREWHOME}/opt/jpeg/lib/pkgconfig"
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
