@@ -286,7 +286,7 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead *.hcl setf conf
   autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
   " autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 spell
-  autocmd BufNewFile,BufRead *.html setlocal noet ts=4 sw=4
+  autocmd BufNewFile,BufRead *.html setlocal expandtab ts=2 sw=2 softtabstop=2 smartindent autoindent
   autocmd BufNewFile,BufRead *.vim,vimrc setlocal expandtab shiftwidth=2 tabstop=2
   autocmd BufNewFile,BufRead *.pp setlocal expandtab tabstop=2 shiftwidth=2
   " autocmd BufNewFile,BufRead *.go setlocal expandtab tabstop=4 shiftwidth=4
