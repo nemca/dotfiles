@@ -70,7 +70,7 @@
     last = log -1 HEAD
     lod = log --graph --decorate --format='%C(yellow)%h %Cred%d %Cgreen%ad %Creset%s' --date=short
     hist = log --pretty=format:'%C(yellow)%h%C(21) %ad %C(15)%s%C(reset) %C(green)%d%C(reset) %C(75)[%an]' --graph --date=short --branches --all
-    standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
+    standup = log --since '1 day ago' --oneline --author mixanemca@yandex.ru
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
 
