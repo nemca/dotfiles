@@ -68,10 +68,7 @@
     lg = log -p
     rb = rebase
     last = log -1 HEAD
-    lod = log --graph --decorate --format='%h %ad %s' --date=short
     lod = log --graph --decorate --format='%C(yellow)%h %Cred%d %Cgreen%ad %Creset%s' --date=short
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     hist = log --pretty=format:'%C(yellow)%h%C(21) %ad %C(15)%s%C(reset) %C(green)%d%C(reset) %C(75)[%an]' --graph --date=short --branches --all
     standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
     # Show files ignored by git:
