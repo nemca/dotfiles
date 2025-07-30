@@ -293,6 +293,7 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead *.tmpl setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
   autocmd BufNewFile,BufRead *.sh setlocal expandtab shiftwidth=2 tabstop=2
   autocmd BufNewFile,BufRead ssh_config,*/.ssh/p2p/* setf sshconfig
+  autocmd BufNewFile *_test.go 0r ~/.vim/templates/go-test.go
 
   autocmd FileType json,ruby,eruby,yaml,html,sh setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 smartindent autoindent
   autocmd Filetype python let NERDSpaceDelims=0
