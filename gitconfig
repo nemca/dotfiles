@@ -76,6 +76,9 @@
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
 
+    # Show diffstat
+    dstat = diff --stat
+
     # search commits by message
     search = "!f() { git log --all --grep=$1; }; f"
 
