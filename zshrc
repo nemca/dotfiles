@@ -17,7 +17,7 @@ export PATH="${BREWHOME}/opt/jpeg/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="${BREWHOME}/bin:/opt/homebrew/sbin:$PATH"
 
-export CDPATH="$HOME/git/nemca:$HOME/git/mixanemca:$HOME/git/perfectcircletech:$HOME/go/src/github.com/mixanemca:$HOME/go/src/github.com/nemca:$HOME/git/p2p-org:$HOME/git/sdg"
+export CDPATH="$HOME/git/nemca:$HOME/git/mixanemca:$HOME/git/perfectcircletech:$HOME/go/src/github.com/mixanemca:$HOME/go/src/github.com/nemca:$HOME/git/tngri"
 
 export LDFLAGS="-L${BREWHOME}/opt/openssl@1.1/lib -L${BREWHOME}/opt/jpeg/lib -L${BREWHOME}/Cellar/jpeg/9f/lib -L${BREWHOME}/lib"
 export CPPFLAGS="-I${BREWHOME}/opt/openssl@1.1/include -I${BREWHOME}/opt/jpeg/include -I${BREWHOME}/include -I${BREWHOME}/Cellar/jpeg/9f/include -I${BREWHOME}/Cellar/webp/1.5.0/include"
