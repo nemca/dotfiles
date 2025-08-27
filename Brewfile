@@ -1,4 +1,5 @@
 brew "ansible"
+brew "ansible-lint"
 brew "bash"
 brew "cloc"
 brew "coreutils"
